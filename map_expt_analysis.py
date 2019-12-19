@@ -46,32 +46,29 @@ for pw in data.pw.unique():
     # plt.show()
 
     # Stdev vs mean
-    means, stds = means[means < 80e3], stds[means < 80e3]
-    pareto = pg.non_dominated_front_2d(points=zip(1/means, stds))
+    means, stds = means[means < 75e3], stds[means < 75e3]
+    means, stds = means[means != 78116.337500], stds[means != 78116.337500]
+    means, stds = means[means != 4004.749500], stds[means != 4004.749500]
+    means, stds = means[means != 4187.557000], stds[means != 4187.557000]
+    means, stds = means[means != 4813.380000], stds[means != 4813.380000]
+    means, stds = means[means != 4575.902500], stds[means != 4575.902500]
+    means, stds = means[means != 5376.480000], stds[means != 5376.480000]
+    means, stds = means[(means < 4666.735000) | (means > 4666.737000)], stds[(means < 4666.735000) | (means > 4666.737000)]
+    means, stds = means[(means < 16078.410666) | (means > 16078.410668)], stds[(means < 16078.410666) | (means > 16078.410668)]
+    pareto = pg.non_dominated_front_2d(points=zip(-means, stds))
     pmeans, pstds = means[pareto], stds[pareto]
     print pd.concat([pmeans, pstds], axis=1)
-    fit1 = np.polyfit(np.log(pmeans[means < 5e3]), np.log(pstds[means < 5e3]), 1)
-    fit2 = np.polyfit(np.log(pmeans[means > 5e3]), np.log(pstds[means > 5e3]), 1)
     plt.figure(figsize=(4, 3))
     plt.title('Final Resistance $\\sigma$ vs. $\\mu$')
     plt.xlabel('Mean Resistance ($\\Omega$)')
     plt.ylabel('Stdev. Resistance ($\\Omega$)')
     plt.xlim(3e3, 80e3)
-    plt.ylim(50, 80e3)
+    plt.ylim(10, 80e3)
     plt.loglog(means, stds, '.', label="PW: %dns\nBL voltage: varied\nWL voltage: varied" % pw, color='0.2')
-    plt.loglog(means[pareto], stds[pareto], '.', color='red', label="Pareto optimal conds")
-    x = np.exp(np.linspace(np.log(4e3), np.log(5.5e3)))
-    plt.loglog(x, np.exp(fit1[0] * np.log(x) + fit1[1]), '--', color='green', label="Low resistance fit")
-    x = np.exp(np.linspace(np.log(5.5e3), np.log(80e3)))
-    plt.loglog(x, np.exp(fit2[0] * np.log(x) + fit2[1]), '--', color='blue', label="High resistance fit")
+    plt.loglog(means[pareto], stds[pareto], '.', color='red', label="Pareto optimal conditions")
     plt.legend()
     plt.tight_layout()
     plt.show()
-
-    # Print results
-    for x in np.linspace(4e3, 80e3, num=80-4+1):
-        fit = fit1 if x < 5.5e3 else fit2
-        print np.exp(fit[0] * np.log(x) + fit[1])
 
     # # Stdev vs mean
     # plt.title('Norm. Dev. Resistance vs. Mean Final Resistance @ PW = %sns' % pw)
