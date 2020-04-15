@@ -20,11 +20,13 @@ plt.rc('font', family='serif', serif='Times')
 grouped = data.groupby(['wlv', pd.cut(data["pw"], np.arange(0, 1000, 100))])
 
 # Means of final resistance
-means = grouped['rf'].mean()
-stds = grouped['rf'].std()
-means.unstack().plot(title='Varied Pulse Width: WL Sweep', logy=False, xlim=(1.7, 2.6), ylim=(1e3, 1.6e5), yerr=stds.unstack(), linewidth=2, elinewidth=0.5, figsize=(4,3))
+rf = grouped['rf']
+means = rf.mean()/1000.
+stds = rf.std()/1000.
+means.unstack().plot(title='SET Pulse Width: WL Voltage Sweep', logy=False, xlim=(1.7, 2.6), ylim=(1, 1.6e2), yerr=stds.unstack(), linewidth=2, elinewidth=0.5, figsize=(4,3))
 plt.xlabel('WL Voltage (V)')
-plt.ylabel('Mean Resistance (ohm)')
-plt.legend(['100ns', '200ns', '300ns'])
+plt.ylabel('Mean Resistance (k$\\Omega$)')
+plt.legend(['100ns', '200ns', '300ns'], title='BLV=3.3V, PW=')
 plt.tight_layout()
+plt.savefig('pw.eps')
 plt.show()
