@@ -30,7 +30,7 @@ means = rf.mean()/1000.
 stds = rf.std()/1000.
 
 # Derivative and smoothing
-result = means.apply(smooth, axis=1)
+#result = means.apply(smooth, axis=1)
 
 # Plot
 means.unstack().plot(title='SET Pulse Width: WL Voltage Sweep', logy=False, xlim=(1.7, 2.6), ylim=(0, 1.6e2), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
