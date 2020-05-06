@@ -1,7 +1,7 @@
 import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('cycling-4-14-20.csv', delimiter='\t', header=None).transpose()
+data = pd.read_csv('cycling-5-1-20.csv', delimiter='\t', header=None).transpose()
 print data
 setr = data.iloc[2:601:2,:]/1000
 print setr

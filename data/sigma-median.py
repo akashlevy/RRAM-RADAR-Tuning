@@ -25,31 +25,31 @@ def is_outlier(s):
     return ~s.between(lower_limit, upper_limit)
 pwdata = pwdata[~pwdata.groupby(['blv','wlv'])['rf'].apply(is_outlier)]
 grouped = pwdata.groupby(['blv','wlv'])
-means = grouped['rf'].mean()
+medians = grouped['rf'].median()
 stds = grouped['rf'].std()
-means, stds = means[means < 60e3], stds[means < 60e3]
+medians, stds = medians[medians < 60e3], stds[medians < 60e3]
 
 # Find pareto front
-pareto = pg.non_dominated_front_2d(points=zip(-means, stds))
-pmeans, pstds = means[pareto], stds[pareto]
-pmeans.to_csv('pareto-mean.csv')
+pareto = pg.non_dominated_front_2d(points=zip(-medians, stds))
+pmedians, pstds = medians[pareto], stds[pareto]
+pmedians.to_csv('pareto-median.csv')
 
 # Polynomial fit to pareto front
 n = 3
-fit = np.polyfit(means[pareto], stds[pareto], n)
+fit = np.polyfit(medians[pareto], stds[pareto], n)
 print tuple(fit)
 x = np.linspace(5e3, 5e4)
 y = list(np.sum(np.array([fit[n-i] * x**i for i in range(n+1)]), axis=0))
 
-# Stdev vs mean
+# Stdev vs median
 plt.figure(figsize=(4, 3))
-plt.title('Final Resistance $\\sigma$ vs. $\\mu$')
-plt.xlabel('Mean Resistance ($\\Omega$)')
+plt.title('Final Resistance $\\sigma$ vs. median')
+plt.xlabel('Median Resistance ($\\Omega$)')
 plt.ylabel('Stdev. Resistance ($\\Omega$)')
-plt.plot(means, stds, '.', label="PW: 100ns\nBL voltage: varied\nWL voltage: varied", color='0.2')
-plt.plot(means[pareto], stds[pareto], '.', color='red', label="Pareto optimal pts")
+plt.plot(medians, stds, '.', label="PW: 100ns\nBL voltage: varied\nWL voltage: varied", color='0.2')
+plt.plot(medians[pareto], stds[pareto], '.', color='red', label="Pareto optimal pts")
 plt.plot(x, y, '--', color='green', label="Pareto optimal fit")
 plt.legend()
 plt.tight_layout()
-plt.savefig('sigma-mu.eps')
+plt.savefig('sigma-median.eps')
 plt.show()

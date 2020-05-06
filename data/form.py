@@ -1,10 +1,10 @@
 import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('form-4-14-20.csv', delimiter='\t', names=['addr', 'wlv', 'blv', 'rf', 'success'])
+data = pd.read_csv('form-5-1-20.csv', delimiter='\t', names=['addr', 'wlv', 'blv', 'rf', 'success'])
 data = data[data['wlv'] == 2]
 data = data[data['blv'] >= 2.5]
-data = data[data['blv'] <= 3.5]
+data = data[data['blv'] <= 4]
 data = data[data['rf'] < 15e3]
 print data
 

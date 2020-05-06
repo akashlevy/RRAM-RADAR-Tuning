@@ -30,13 +30,26 @@ means = rf.mean()/1000.
 stds = rf.std()/1000.
 
 # Derivative and smoothing
-#result = means.apply(smooth, axis=1)
+pts = means.unstack().values
+grads = np.gradient(pts, axis=0)/0.01
+xs = [[2.12,2.28],[1.88,1.98],[1.78,1.88]]
+xsi = [(int(round((n1-1.5)*100)), int(round((n2-1.5)*100))) for n1, n2 in xs]
+gradpw = [grads[xsi[i][0]:xsi[i][1],i].mean() for i in range(3)]
+print gradpw
+midsi = [(xsi[i][0] + xsi[i][1])/2 for i in range(3)]
+mids = [(xs[i][0] + xs[i][1])/2 for i in range(3)]
+pt = [pts[midsi[i],i] for i in range(3)]
+ys = [(gradpw[i] * (x[0] - mids[i]) + pt[i], gradpw[i] * (x[1] - mids[i]) + pt[i]) for i,x in enumerate(xs)]
 
 # Plot
-means.unstack().plot(title='SET Pulse Width: WL Voltage Sweep', logy=False, xlim=(1.7, 2.6), ylim=(0, 1.6e2), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
+means.unstack().plot(title='SET Pulse Width: WL Voltage Sweep', logy=False, xlim=(1.7, 2.6), ylim=(0, 1.8e2), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
+plt.plot(xs[0], ys[0], ':', linewidth=3)
+plt.plot(xs[1], ys[1], ':', linewidth=3)
+plt.plot(xs[2], ys[2], ':', linewidth=3)
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
-plt.legend(['100ns', '200ns', '300ns'], title='BLV=3.3V, PW=')
+plt.legend(['PW=100ns', 'PW=200ns', 'PW=300ns'] + ["%d k$\\Omega$/V" % gradpw[i] for i in range(3)], title='BLV=3.3V', ncol=2, columnspacing=1, handletextpad=0.5, borderpad=0.2)
 plt.tight_layout()
 plt.savefig('pw.eps')
 plt.show()
+
