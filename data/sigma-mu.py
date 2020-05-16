@@ -2,7 +2,7 @@ import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
 # Load data and filter
-data = pd.read_csv('set-sweep-5-1-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
+data = pd.read_csv('set-sweep-5-10-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
 #data = data[data['ri'] > 60e3]
 #data = data[data['rf'] < 150e3]
 data = data[data['blv'] > 1.5]

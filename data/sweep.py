@@ -6,7 +6,7 @@ def smooth(y, box_pts=7):
     box = np.ones(box_pts) / box_pts
     return np.concatenate((y[:box_pts/2], np.convolve(y, box, mode='valid'), y[-box_pts/2+1:]))
 
-data = pd.read_csv('set-sweep-5-1-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
+data = pd.read_csv('set-sweep-5-10-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
 data = data[data['ri'] > 60e3]
 print data
 

@@ -2,7 +2,7 @@ import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
 
-data = pd.read_csv('ispp-cb-0.03-4-24-20.csv', delimiter='\t', names=['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success'], index_col=False)
+data = pd.read_csv('ispp-0.06-5-11-20.csv', delimiter='\t', names=['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success'], index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 data['stepsize'] = 0.03
 rlos = data['rlo'].unique()
