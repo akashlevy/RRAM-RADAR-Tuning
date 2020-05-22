@@ -1,19 +1,26 @@
 import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
+from matplotlib import cm
+from mpl_toolkits.mplot3d import Axes3D
 
 maxpulses = 40
 
 datas = []
-for step in np.arange(0.05, 0.55, 0.05):
-    #data = pd.read_csv('sdr-wl0.06-bl%.2f-sl0.05-5-15-20.csv' % step, delimiter='\t', names=
-    data = pd.read_csv('sdr-wl0.06-bl0.40-sl%.2f-5-15-20.csv' % step, delimiter='\t', names=
-    ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success'], index_col=False)
-    data['npulses'] = data['nsets'] + data['nresets']
-    data['stepsize'] = step
-    rlos = data['rlo'].unique()
-    data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
-    datas.append(data)
+names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
+steps = np.arange(0.05, 0.85, 0.05)
+starts = np.arange(0.5, 2.5, 0.5)
+for step in steps:
+    for start in starts:
+        fname = 'sdr-wl0.06-bl0.40-sl%.2f-%.2f-5-20-20.csv' % (step,start)
+        data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
+        data['npulses'] = data['nsets'] + data['nresets']
+        data['stepsize'] = step
+        data['start'] = start
+        rlos = data['rlo'].unique()
+        data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
+        datas.append(data)
 data = pd.concat(datas)
+
 #data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
 #data['npulses'] = data['npulses'].clip(upper=maxpulses)
 print data
@@ -28,6 +35,25 @@ mpl.rcParams.update(
     }
 )
 plt.rc('font', family='serif', serif='Times')
+
+for l in range(8):
+    fig = plt.figure()
+    ax = Axes3D(fig)
+    d = data[data['bin'] == l].groupby(['stepsize', 'start'])['npulses'].mean()
+    grid = np.meshgrid(steps, starts)
+    print d.unstack()
+    print d.min(), d.idxmin()
+    ax.plot_surface(grid[0], grid[1], d.unstack().T)
+    plt.show()
+
+    fig = plt.figure()
+    ax = Axes3D(fig)
+    d = data[data['bin'] == l].groupby(['stepsize', 'start'])['success'].mean()
+    grid = np.meshgrid(steps, starts)
+    print d.unstack()
+    print d.min(), d.idxmin()
+    ax.plot_surface(grid[0], grid[1], d.unstack().T)
+    plt.show()
 
 
 # SDR Mean Step

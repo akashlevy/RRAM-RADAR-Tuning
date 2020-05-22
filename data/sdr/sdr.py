@@ -1,7 +1,7 @@
 import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('sdr-wl0.06-bl0.40-sl0.05-0.50-5-20-20.csv', delimiter='\t', names=['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2'], index_col=False)
+data = pd.read_csv('sdr-opt1-wl1-5-21-20.csv', delimiter='\t', names=['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2'], index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
@@ -38,19 +38,31 @@ npulses_mean.plot.bar(title='SDR: Mean Pulses per Level', figsize=(4,3), yerr=np
 plt.xlabel('Level Number')
 plt.ylabel('Mean Pulses Required')
 plt.tight_layout()
-plt.savefig('sdr-mean-pulses-beststep-bin.eps')
+plt.savefig('sdr-mean-pulses-bin.eps')
 plt.show()
 
-# SDR Mean Resets
+# SDR Mean Coarse Attempts
 grouped = data.groupby(['bin'])
-nresets = grouped['nresets']
+nresets = grouped['attempts1']
 nresets_mean = nresets.mean()
 nresets_std = nresets.std()
-nresets_mean.plot.bar(title='SDR: Mean Resets per Level', figsize=(4,3), yerr=nresets_std)
+nresets_mean.plot.bar(title='SDR: Mean Coarse Attempts per Level', figsize=(4,3), yerr=nresets_std)
 plt.xlabel('Level Number')
-plt.ylabel('Mean Resets Required')
+plt.ylabel('Mean Coarse Attempts Required')
 plt.tight_layout()
-plt.savefig('sdr-mean-resets-beststep-bin.eps')
+plt.savefig('sdr-mean-coarse-attempts-bin.eps')
+plt.show()
+
+# SDR Fine Coarse Attempts
+grouped = data.groupby(['bin'])
+nresets = grouped['attempts2']
+nresets_mean = nresets.mean()
+nresets_std = nresets.std()
+nresets_mean.plot.bar(title='SDR: Mean Fine Attempts per Level', figsize=(4,3), yerr=nresets_std)
+plt.xlabel('Level Number')
+plt.ylabel('Mean Fine Attempts Required')
+plt.tight_layout()
+plt.savefig('sdr-mean-fine-attempts-bin.eps')
 plt.show()
 
 # SDR Mean Success Rate
@@ -61,5 +73,5 @@ success_mean.plot.bar(title='SDR: Success Rate per Level', figsize=(4,3))
 plt.xlabel('Level Number')
 plt.ylabel('Success Rate')
 plt.tight_layout()
-plt.savefig('sdr-mean-success-beststep-bin.eps')
+plt.savefig('sdr-mean-success-bin.eps')
 plt.show()
