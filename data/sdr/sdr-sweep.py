@@ -8,7 +8,7 @@ maxpulses = 40
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 steps = np.arange(0.05, 0.85, 0.05)
-starts = np.arange(0.5, 2.5, 0.5)
+starts = np.arange(0.5, 2.25, 0.25)
 for step in steps:
     for start in starts:
         fname = 'sdr-wl0.06-bl0.40-sl%.2f-%.2f-5-20-20.csv' % (step,start)
