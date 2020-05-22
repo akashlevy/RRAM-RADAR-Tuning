@@ -11,7 +11,7 @@ steps = np.arange(0.05, 0.85, 0.05)
 starts = np.arange(0.5, 2.25, 0.25)
 for step in steps:
     for start in starts:
-        fname = 'sdr-wl0.06-bl0.40-sl%.2f-%.2f-5-20-20.csv' % (step,start)
+        fname = 'sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-5-20-20.csv' % (step,start)
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets']
         data['stepsize'] = step
@@ -81,29 +81,4 @@ plt.xlabel('Step Size')
 plt.ylabel('Success Rate')
 plt.tight_layout()
 plt.savefig('sdr-mean-success-step.eps')
-plt.show()
-
-
-# SDR Mean Step
-grouped = data[(data['stepsize'] >= 0.44) & (data['stepsize'] <= 0.46)].groupby(['bin'])
-npulses = grouped['npulses']
-npulses_mean = npulses.mean()
-npulses_std = npulses.std()
-npulses_mean.plot.bar(title='SDR: Mean Pulses per Level', figsize=(4,3), yerr=npulses_std)
-plt.xlabel('Level Number')
-plt.ylabel('Mean Pulses Required')
-plt.tight_layout()
-plt.savefig('sdr-mean-pulses-beststep-bin.eps')
-plt.show()
-
-# SDR Mean Success Rate
-grouped = data[(data['stepsize'] >= 0.44) & (data['stepsize'] <= 0.46)].groupby(['bin'])
-success = grouped['success']
-success_mean = success.mean()
-print success_mean
-success_mean.plot.bar(title='SDR: Success Rate per Level', figsize=(4,3))
-plt.xlabel('Level Number')
-plt.ylabel('Success Rate')
-plt.tight_layout()
-plt.savefig('sdr-mean-success-beststep-bin.eps')
 plt.show()
