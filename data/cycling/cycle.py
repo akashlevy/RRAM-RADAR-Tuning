@@ -16,7 +16,7 @@ mpl.rcParams.update(
     'pgf.rcfonts': True,
     }
 )
-plt.rc('font', family='serif', serif='Times', size=12)
+plt.rc('font', family='serif', serif='Times', size=13)
 
 # Plot cycling data
 data.iloc[550:,:5].plot(logy=True, figsize=(4,3))

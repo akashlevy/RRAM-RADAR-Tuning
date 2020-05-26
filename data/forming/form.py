@@ -17,7 +17,7 @@ mpl.rcParams.update(
     'pgf.rcfonts': True,
     }
 )
-plt.rc('font', family='serif', serif='Times', size=12)
+plt.rc('font', family='serif', serif='Times', size=13)
 
 # Means of final resistance
 rf = data['rf']/1000

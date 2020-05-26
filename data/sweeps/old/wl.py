@@ -15,7 +15,7 @@ mpl.rcParams.update(
     'pgf.rcfonts': True,
     }
 )
-plt.rc('font', family='serif', serif='Times', size=12)
+plt.rc('font', family='serif', serif='Times', size=13)
 
 # Set up variables
 grouped = data.groupby(['wlv'])

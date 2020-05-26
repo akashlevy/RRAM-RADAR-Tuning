@@ -1,15 +1,13 @@
 import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 
-'''Smooth using filter'''
-def smooth(y, box_pts=7):
-    box = np.ones(box_pts) / box_pts
-    return np.concatenate((y[:box_pts/2], np.convolve(y, box, mode='valid'), y[-box_pts/2+1:]))
 
 # Load data
 names = ['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']
-data = pd.read_csv('data/set-sweep-ispp-step-0.01-5-25-20.csv', delimiter='\t', names=names)
+stepsize = 0.01
+data = pd.read_csv('data/set-sweep-ispp-step-%.2f-5-25-20.csv' % stepsize, delimiter='\t', names=names)
 print data
+
 
 # LaTEX quality figures 
 mpl.rcParams.update(
@@ -19,7 +17,8 @@ mpl.rcParams.update(
     'pgf.rcfonts': True,
     }
 )
-plt.rc('font', family='serif', serif='Times', size=12)
+plt.rc('font', family='serif', serif='Times', size=13)
+
 
 # Remove outliers
 def is_outlier(s):
@@ -39,7 +38,6 @@ stds = rf.std()/1000.
 
 # Plot
 ax = means.unstack().plot(title='ISPP WL Voltage Sweep', logy=False, xlim=(2.2, 2.5), ylim=(0, 1e2), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
-ax.text(0.5, 0.5, 'Step size: 10mV')
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
 plt.legend(["%.1f" % n for n in np.arange(1.5, 3.5, 0.5)], title='BLV (V)')
