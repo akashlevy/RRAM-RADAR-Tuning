@@ -16,13 +16,13 @@ mpl.rcParams.update(
     'pgf.rcfonts': True,
     }
 )
-plt.rc('font', family='serif', serif='Times')
+plt.rc('font', family='serif', serif='Times', size=12)
 
 # Plot cycling data
 data.iloc[550:,:5].plot(logy=True, figsize=(4,3))
 plt.title('Cell Cycling')
 plt.xlabel('Pulse Number')
-plt.ylabel('Resistance (k$\Omega$)')
+plt.ylabel('Resistance (k$\\Omega$)')
 plt.tight_layout()
 plt.savefig('figs/cycle.eps')
 plt.show()

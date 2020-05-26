@@ -38,7 +38,7 @@ mpl.rcParams.update(
     'pgf.rcfonts': True,
     }
 )
-plt.rc('font', family='serif', serif='Times')
+plt.rc('font', family='serif', serif='Times', size=12)
 
 
 # Per-level optimization
