@@ -3,13 +3,17 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
 
+
+# Filter parameters
 maxpulses = 40
 
+
+# Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 steps = np.arange(0.05, 1.05, 0.05)
 for step in steps:
-        fname = 'bl-opt/sdr-wl0.06-bl%.2f-sl0.05-0.50-5-22-20.csv' % step
+        fname = 'data/bl-opt/sdr-wl0.06-bl%.2f-sl0.05-0.50-5-22-20.csv' % step
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets']
         data['stepsize'] = step
@@ -33,6 +37,8 @@ mpl.rcParams.update(
 )
 plt.rc('font', family='serif', serif='Times')
 
+
+# Per-level optimization
 for l in range(8):
     d = data[data['bin'] == l].groupby(['stepsize'])['npulses'].mean()
     print d

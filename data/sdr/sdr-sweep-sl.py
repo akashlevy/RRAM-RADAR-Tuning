@@ -3,15 +3,19 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
 
+
+# Filter parameters
 maxpulses = 40
 
+
+# Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 steps = np.arange(0.05, 0.85, 0.05)
 starts = np.arange(0.5, 2.25, 0.25)
 for step in steps:
     for start in starts:
-        fname = 'sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-5-20-20.csv' % (step,start)
+        fname = 'data/sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-5-20-20.csv' % (step,start)
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets']
         data['stepsize'] = step
@@ -36,6 +40,8 @@ mpl.rcParams.update(
 )
 plt.rc('font', family='serif', serif='Times')
 
+
+# Per-level optimization
 for l in range(8):
     fig = plt.figure()
     ax = Axes3D(fig)
@@ -62,7 +68,7 @@ npulses = grouped['npulses']
 npulses_mean = npulses.mean()
 print npulses_mean
 npulses_std = npulses.std()
-#print npulses_std
+print npulses_std
 npulses_mean.plot.bar(title='SDR: Mean Pulses vs. Step Size', figsize=(4,3), yerr=npulses_std)
 plt.xlabel('Step Size')
 plt.ylabel('Mean Pulses Required')

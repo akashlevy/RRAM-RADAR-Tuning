@@ -1,7 +1,9 @@
 import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('fppv-5-11-20.csv', delimiter='\t', names=['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success'], index_col=False)
+
+# Load data
+data = pd.read_csv('data/fppv-5-26-20.csv', delimiter='\t', names=['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success'], index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
@@ -32,7 +34,7 @@ npulses_mean.plot.bar(title='FPPV: Mean Pulses per Level', figsize=(4,3), yerr=n
 plt.xlabel('Level Number')
 plt.ylabel('Mean Pulses Required')
 plt.tight_layout()
-plt.savefig('fppv-mean-pulses-beststep-bin.eps')
+plt.savefig('figs/fppv-mean-pulses-beststep-bin.eps')
 plt.show()
 
 # FPPV Mean Success Rate
@@ -43,5 +45,5 @@ success_mean.plot.bar(title='FPPV: Success Rate per Level', figsize=(4,3))
 plt.xlabel('Level Number')
 plt.ylabel('Success Rate')
 plt.tight_layout()
-plt.savefig('fppv-mean-success-beststep-bin.eps')
+plt.savefig('figs/fppv-mean-success-beststep-bin.eps')
 plt.show()

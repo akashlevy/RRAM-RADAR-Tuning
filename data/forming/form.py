@@ -1,7 +1,8 @@
 import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('form-5-1-20.csv', delimiter='\t', names=['addr', 'wlv', 'blv', 'rf', 'success'])
+# Load data and filter
+data = pd.read_csv('data/form-5-1-20.csv', delimiter='\t', names=['addr', 'wlv', 'blv', 'rf', 'success'])
 data = data[data['wlv'] == 2]
 data = data[data['blv'] >= 2.5]
 data = data[data['blv'] <= 4]
@@ -25,7 +26,7 @@ plt.title('Post-FORMing Resistance Distribution')
 plt.xlabel('Post-FORMing Resistance (k$\\Omega$)')
 plt.ylabel('Frequency')
 plt.tight_layout()
-plt.savefig('form-rf-hist.eps')
+plt.savefig('figs/form-rf-hist.eps')
 plt.show()
 
 # Means of final resistance
@@ -35,5 +36,5 @@ plt.title('FORMing BL Voltage Distribution')
 plt.xlabel('BL Voltage (V)')
 plt.ylabel('Frequency')
 plt.tight_layout()
-plt.savefig('form-bl-hist.eps')
+plt.savefig('figs/form-bl-hist.eps')
 plt.show()

@@ -1,8 +1,10 @@
 import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
+
+# Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('bl-opt/sdr-4wl-opt.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('data/bl-opt/sdr-4wl-opt.csv', delimiter='\t', names=names, index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
@@ -39,7 +41,7 @@ npulses_mean.plot.bar(title='SDR: Mean Pulses per Level', figsize=(4,3), yerr=np
 plt.xlabel('Level Number')
 plt.ylabel('Mean Pulses Required')
 plt.tight_layout()
-plt.savefig('sdr-mean-pulses-bin.eps')
+plt.savefig('figs/sdr-mean-pulses-bin.eps')
 plt.show()
 
 # SDR Mean Coarse Attempts
@@ -51,7 +53,7 @@ nresets_mean.plot.bar(title='SDR: Mean Coarse Attempts per Level', figsize=(4,3)
 plt.xlabel('Level Number')
 plt.ylabel('Mean Coarse Attempts Required')
 plt.tight_layout()
-plt.savefig('sdr-mean-coarse-attempts-bin.eps')
+plt.savefig('figs/sdr-mean-coarse-attempts-bin.eps')
 plt.show()
 
 # SDR Fine Coarse Attempts
@@ -63,7 +65,7 @@ nresets_mean.plot.bar(title='SDR: Mean Fine Attempts per Level', figsize=(4,3), 
 plt.xlabel('Level Number')
 plt.ylabel('Mean Fine Attempts Required')
 plt.tight_layout()
-plt.savefig('sdr-mean-fine-attempts-bin.eps')
+plt.savefig('figs/sdr-mean-fine-attempts-bin.eps')
 plt.show()
 
 # SDR Mean Success Rate
@@ -74,5 +76,5 @@ success_mean.plot.bar(title='SDR: Success Rate per Level', figsize=(4,3))
 plt.xlabel('Level Number')
 plt.ylabel('Success Rate')
 plt.tight_layout()
-plt.savefig('sdr-mean-success-bin.eps')
+plt.savefig('figs/sdr-mean-success-bin.eps')
 plt.show()
