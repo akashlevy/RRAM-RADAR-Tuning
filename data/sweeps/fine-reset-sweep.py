@@ -29,7 +29,7 @@ data = data[~data.groupby(['slv','wlv'])['rf'].apply(is_outlier)]
 
 # Set up variables
 grouped = data[data['wlv'] == 4]
-grouped = grouped.groupby(['slv', pd.cut(grouped['addr'], np.arange(1450,1469,1))])
+grouped = grouped.groupby('slv')
 
 # Means of final resistance
 rf = grouped['rf']
@@ -37,11 +37,10 @@ means = rf.mean()/1000.
 stds = rf.std()/1000.
 
 # Plot
-ax = means.unstack().plot(title='Fine RESET SL Sweep', logy=False, xlim=(1, 2.2), ylim=(0, 60), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
+ax = means.plot(title='Fine RESET SL Sweep', logy=False, xlim=(1, 2.2), ylim=(0, 60), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
 plt.xlabel('SL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
-#plt.legend(['WLV=4V'])
-plt.gca().get_legend().remove()
+plt.legend(['WLV=4V'])
 plt.tight_layout()
 plt.savefig('figs/fine-reset-sweep.eps')
 plt.show()

@@ -2,7 +2,7 @@ import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
 # Load data and filter
-data = pd.read_csv('set-sweep-5-10-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
+data = pd.read_csv('data/set-sweep-wl-inner-5-26-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
 #data = data[data['ri'] > 60e3]
 #data = data[data['rf'] < 150e3]
 data = data[data['blv'] == 1.5]
@@ -32,7 +32,7 @@ means, stds = means[means < 60e3], stds[means < 60e3]
 # Find pareto front
 pareto = pg.non_dominated_front_2d(points=zip(-means, stds))
 pmeans, pstds = means[pareto], stds[pareto]
-pmeans.to_csv('pareto-mean.csv')
+pmeans.to_csv('results/pareto-mean.csv')
 
 # Polynomial fit to pareto front
 n = 3
@@ -51,5 +51,5 @@ plt.plot(means[pareto], stds[pareto], '.', color='red', label="Pareto optimal pt
 plt.plot(x, y, '--', color='green', label="Pareto optimal fit")
 plt.legend()
 plt.tight_layout()
-plt.savefig('sigma-mu.eps')
+plt.savefig('figs/sigma-mu.eps')
 plt.show()

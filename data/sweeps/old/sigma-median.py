@@ -2,10 +2,10 @@ import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
 # Load data and filter
-data = pd.read_csv('data/set-sweep-wl-inner-5-10-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
+data = pd.read_csv('data/set-sweep-wl-inner-5-26-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
 #data = data[data['ri'] > 60e3]
 #data = data[data['rf'] < 150e3]
-data = data[data['blv'] > 1.5]
+data = data[data['blv'] == 1.5]
 pwdata = data[data['pw'] == 100]
 
 # LaTEX quality figures 
@@ -32,7 +32,7 @@ medians, stds = medians[medians < 60e3], stds[medians < 60e3]
 # Find pareto front
 pareto = pg.non_dominated_front_2d(points=zip(-medians, stds))
 pmedians, pstds = medians[pareto], stds[pareto]
-pmedians.to_csv('pareto-median.csv')
+pmedians.to_csv('results/pareto-median.csv')
 
 # Polynomial fit to pareto front
 n = 3
@@ -51,5 +51,5 @@ plt.plot(medians[pareto], stds[pareto], '.', color='red', label="Pareto optimal 
 plt.plot(x, y, '--', color='green', label="Pareto optimal fit")
 plt.legend()
 plt.tight_layout()
-plt.savefig('sigma-median.eps')
+plt.savefig('figs/sigma-median.eps')
 plt.show()
