@@ -2,17 +2,31 @@ import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 
 
+# Filter parameters
+maxpulses = 50
+
+
 # Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-for step in np.arange(0.01, 0.16, 0.01):
-    data = pd.read_csv('data/ispp-%.2f-5-26-20.csv' % step, delimiter='\t', names=names, index_col=False)
+for step in np.arange(0.01, 0.13, 0.01):
+    data = pd.read_csv('data/ispp-wl%.2f-bl0.05-sl0.30-0.30-5-23-20.csv' % step, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets']
     data['stepsize'] = step
     rlos = data['rlo'].unique()
     data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
     datas.append(data)
 data = pd.concat(datas)
+data = data[data['addr'] != 894]
+data = data[data['addr'] != 900]
+data = data[data['addr'] != 909]
+data = data[data['addr'] != 939]
+data = data[data['addr'] != 955]
+data = data[data['addr'] != 992]
+data = data[data['addr'] != 1015]
+
+data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
+data['npulses'] = data['npulses'].clip(upper=maxpulses)
 print data
 
 
@@ -69,7 +83,7 @@ plt.show()
 
 
 # ISPP Mean Step
-grouped = data[data['stepsize'] == 0.01].groupby(['bin'])
+grouped = data[np.abs(data['stepsize'] - 0.06) <= 1e-9].groupby(['bin'])
 npulses = grouped['npulses']
 npulses_mean = npulses.mean()
 npulses_std = npulses.std()
@@ -81,7 +95,7 @@ plt.savefig('figs/ispp-mean-pulses-beststep-bin.eps')
 plt.show()
 
 # ISPP Mean Resets
-grouped = data[data['stepsize'] == 0.01].groupby(['bin'])
+grouped = data[np.abs(data['stepsize'] - 0.06) <= 1e-9].groupby(['bin'])
 nresets = grouped['nresets']
 nresets_mean = nresets.mean()
 nresets_std = nresets.std()
@@ -93,7 +107,7 @@ plt.savefig('figs/ispp-mean-resets-beststep-bin.eps')
 plt.show()
 
 # ISPP Mean Success Rate
-grouped = data[data['stepsize'] == 0.01].groupby(['bin'])
+grouped = data[np.abs(data['stepsize'] - 0.06) <= 1e-9].groupby(['bin'])
 success = grouped['success']
 success_mean = success.mean()
 print success_mean

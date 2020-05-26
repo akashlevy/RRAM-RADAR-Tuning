@@ -5,7 +5,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 # Filter parameters
-maxpulses = 40
+maxpulses = 50
 
 
 # Load data

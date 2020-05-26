@@ -2,13 +2,28 @@ import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 
 
+# Filter parameters
+maxpulses = 50
+
+
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 data = pd.read_csv('data/fppv-expt3-5-26-20.csv', delimiter='\t', names=names, index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
+data = data[data['addr'] != 894]
+data = data[data['addr'] != 900]
+data = data[data['addr'] != 909]
+data = data[data['addr'] != 939]
+data = data[data['addr'] != 955]
+data = data[data['addr'] != 992]
+data = data[data['addr'] != 1015]
+
+data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
+data['npulses'] = data['npulses'].clip(upper=maxpulses)
 print data
+
 
 # LaTEX quality figures 
 mpl.rcParams.update(
