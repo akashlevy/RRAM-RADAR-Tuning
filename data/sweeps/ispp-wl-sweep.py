@@ -7,7 +7,8 @@ def smooth(y, box_pts=7):
     return np.concatenate((y[:box_pts/2], np.convolve(y, box, mode='valid'), y[-box_pts/2+1:]))
 
 # Load data
-data = pd.read_csv('data/set-sweep-ispp-step-0.01-5-25-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
+names = ['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']
+data = pd.read_csv('data/set-sweep-ispp-step-0.01-5-25-20.csv', delimiter='\t', names=names)
 print data
 
 # LaTEX quality figures 

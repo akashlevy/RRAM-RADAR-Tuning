@@ -1,11 +1,12 @@
-import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
+import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 
 
 # Load data
 datas = []
+names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 for step in np.arange(0.01, 0.16, 0.01):
-    data = pd.read_csv('data/ispp-%.2f-5-26-20.csv' % step, delimiter='\t', names=['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success'], index_col=False)
+    data = pd.read_csv('data/ispp-%.2f-5-26-20.csv' % step, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets']
     data['stepsize'] = step
     rlos = data['rlo'].unique()

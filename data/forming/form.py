@@ -1,4 +1,4 @@
-import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
+import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 
 # Load data and filter

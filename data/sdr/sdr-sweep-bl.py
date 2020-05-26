@@ -1,4 +1,4 @@
-import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
+import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D

@@ -1,9 +1,10 @@
-import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
+import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 
 
 # Load data
-data = pd.read_csv('data/fppv-5-26-20.csv', delimiter='\t', names=['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success'], index_col=False)
+names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
+data = pd.read_csv('data/fppv-5-26-20.csv', delimiter='\t', names=names, index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
