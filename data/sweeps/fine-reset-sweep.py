@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 
 # Load data
 names = ['addr', 'pw', 'slv', 'wlv', 'ri', 'rf']
-stepsize = 0.01
-data = pd.read_csv('data/reset-sweep-fine-step-%.2f-5-26-20.csv' % stepsize, delimiter='\t', names=names)
+stepsize = 0.02
+data = pd.read_csv('data/sl-reset-sweep-5-29-20.csv', delimiter='\t', names=names)
+#data = data[data['addr'] == 1455]
 print data
 
 
@@ -25,22 +26,36 @@ def is_outlier(s):
     lower_limit = s.mean() - (s.std() * 2)
     upper_limit = s.mean() + (s.std() * 2)
     return ~s.between(lower_limit, upper_limit)
-data = data[~data.groupby(['slv','wlv'])['rf'].apply(is_outlier)]
+#data = data[~data.groupby(['slv','wlv'])['rf'].apply(is_outlier)]
 
 # Set up variables
-grouped = data[data['wlv'] == 4]
-grouped = grouped.groupby('slv')
+#data = data[data['slv']*1000 % 1 <= 1e-9]
+#data = data[data['wlv'] == 4]
+grouped = data.groupby('slv')
 
 # Means of final resistance
 rf = grouped['rf']
-means = rf.mean()/1000.
+medians = rf.median()/1000.
 stds = rf.std()/1000.
 
+# Derivative and smoothing
+pts = medians.values
+print pts
+x1, x2 = (1.6, 1.7)
+xsi = (int(round((x1-0)/stepsize)), int(round((x2-0)/stepsize)))
+print xsi
+y1, y2 = pts[xsi[0]], pts[xsi[1]]
+print y1, y2
+gradpw = (y2-y1)/(x2-x1)
+print gradpw
+
 # Plot
-ax = means.plot(title='Fine RESET SL Sweep', logy=False, xlim=(1, 2.2), ylim=(0, 60), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
+ax = medians.plot(title='SL Voltage Sweep', logy=False, xlim=(1, 3), ylim=(0, 60), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
+plt.plot([2*x1-x2, x2+0.1], [y1-gradpw*(x2-x1), y2+0.1*gradpw], 'r:', linewidth=2)
+plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(1.3, 40), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 plt.xlabel('SL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
-plt.legend(['WLV=4V'])
+plt.legend(['WLV=4V, PW=100ns'], columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})
 plt.tight_layout()
 plt.savefig('figs/fine-reset-sweep.eps')
 plt.show()

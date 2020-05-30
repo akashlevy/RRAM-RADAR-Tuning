@@ -10,13 +10,14 @@ maxpulses = 50
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 for step in np.arange(0.01, 0.13, 0.01):
-    data = pd.read_csv('data/ispp-wl%.2f-bl0.05-sl0.30-0.30-5-23-20.csv' % step, delimiter='\t', names=names, index_col=False)
+    data = pd.read_csv('data/ispp-wl%.2f-bl0.05-sl0.30-4.30-5-27-20.csv' % step, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets']
     data['stepsize'] = step
     rlos = data['rlo'].unique()
     data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
     datas.append(data)
 data = pd.concat(datas)
+data = data[data['addr'] != 850]
 data = data[data['addr'] != 894]
 data = data[data['addr'] != 900]
 data = data[data['addr'] != 909]
@@ -24,6 +25,7 @@ data = data[data['addr'] != 939]
 data = data[data['addr'] != 955]
 data = data[data['addr'] != 992]
 data = data[data['addr'] != 1015]
+data = data[data['addr'] != 1031]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
 data['npulses'] = data['npulses'].clip(upper=maxpulses)
@@ -48,7 +50,7 @@ npulses_mean = npulses.mean()
 print npulses_mean
 npulses_std = npulses.std()
 print npulses_std
-npulses_mean.plot.bar(title='ISPP: Mean Pulses vs. Step Size', figsize=(4,3), yerr=npulses_std)
+npulses_mean.plot.bar(title='ISPP: Mean Pulses vs. Step Size', figsize=(4,3), color=['r' if s < 0.99 else 'c' for s in grouped['success'].mean()]) #, yerr=npulses_std) 
 plt.xlabel('Step Size')
 plt.ylabel('Mean Pulses Required')
 plt.tight_layout()

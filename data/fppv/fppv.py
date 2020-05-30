@@ -8,17 +8,17 @@ maxpulses = 50
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('data/fppv-expt3-5-26-20.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('data/fppv-eval-4wl-chip1.csv', delimiter='\t', names=names, index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
-data = data[data['addr'] != 894]
-data = data[data['addr'] != 900]
-data = data[data['addr'] != 909]
-data = data[data['addr'] != 939]
-data = data[data['addr'] != 955]
-data = data[data['addr'] != 992]
-data = data[data['addr'] != 1015]
+# data = data[data['addr'] != 894]
+# data = data[data['addr'] != 900]
+# data = data[data['addr'] != 909]
+# data = data[data['addr'] != 939]
+# data = data[data['addr'] != 955]
+# data = data[data['addr'] != 992]
+# data = data[data['addr'] != 1015]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
 data['npulses'] = data['npulses'].clip(upper=maxpulses)
@@ -50,7 +50,7 @@ npulses_mean.plot.bar(title='FPPV: Mean Pulses per Level', figsize=(4,3), yerr=n
 plt.xlabel('Level Number')
 plt.ylabel('Mean Pulses Required')
 plt.tight_layout()
-plt.savefig('figs/fppv-mean-pulses-beststep-bin.eps')
+plt.savefig('figs/fppv-mean-pulses-bin.eps')
 plt.show()
 
 # FPPV Mean Success Rate
@@ -61,5 +61,5 @@ success_mean.plot.bar(title='FPPV: Success Rate per Level', figsize=(4,3))
 plt.xlabel('Level Number')
 plt.ylabel('Success Rate')
 plt.tight_layout()
-plt.savefig('figs/fppv-mean-success-beststep-bin.eps')
+plt.savefig('figs/fppv-mean-success-bin.eps')
 plt.show()

@@ -56,9 +56,10 @@ means = rf.mean()/1000.
 stds = rf.std()/1000.
 
 # Plot
-means.unstack().plot(title='SET BL Voltage Sweep', logy=False, xlim=(1.5, 3), ylim=(0, 70), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
+ax = means.unstack().plot(title='SET BL Voltage Sweep', logy=False, xlim=(0.5, 3), ylim=(0, 100), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
 plt.xlabel('BL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
+ax.get_legend().remove()
 #plt.legend(["%.1f" % n for n in np.arange(2.5, 3.1, 0.1)], title='WLV (V)', ncol=2)
 plt.tight_layout()
 plt.savefig('bl-sweep.eps')

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 data = pd.read_csv('data/set-sweep-wl-inner-5-26-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
 data = data[data['pw'] == 100]
-data = data[data['blv'] == 1.5]
+data = data[data['blv'] == 1.6]
 print data
 
 # LaTEX quality figures 
@@ -23,10 +23,19 @@ grouped = data.groupby(['wlv'])
 rf = grouped['rf']
 medians = rf.median()/1000.
 stds = rf.std()/1000.
-medians.plot(title='FPPV WL Voltage Sweep', logy=False, xlim=(2.2, 2.6), ylim=(0, 80), linewidth=2, figsize=(4,3))
+
+pts = medians.values
+vs = reversed([2.26, 2.31, 2.35, 2.41, 2.47, 2.54])
+vis = [int(round((v-2.2)/0.01)) for v in vs]
+rs = [pts[vi] for vi in vis]
+print zip(vs, rs)
+
+# Plot WL voltage and selections
+medians.plot(title='FPPV WL Voltage Selection', logy=False, xlim=(2.2, 2.7), ylim=(0, 60), linewidth=2, figsize=(4,3))
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Median Resistance (k$\\Omega$)')
-plt.legend([''], title='BLV=1.5V, PW=100ns')
+leg = plt.legend([''], handletextpad=0.5, borderpad=0.2)
+leg.set_title(title='BLV=1.6V, PW=100ns', prop={'size': 11})
 plt.tight_layout()
 plt.savefig('figs/fppv-wl-sweep.eps')
 plt.show()

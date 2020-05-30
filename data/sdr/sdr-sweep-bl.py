@@ -5,15 +5,15 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 # Filter parameters
-maxpulses = 50
+maxpulses = 100
 
 
 # Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.05, 1.05, 0.05)
+steps = np.arange(0.02, 0.42, 0.02)
 for step in steps:
-        fname = 'data/bl-opt/sdr-wl0.06-bl%.2f-sl0.05-0.50-5-22-20.csv' % step
+        fname = 'data/bl-opt/sdr-wl0.06-bl%.2f-sl0.10-1.50-5-27-20.csv' % step
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets']
         data['stepsize'] = step
@@ -25,6 +25,15 @@ data = pd.concat(datas)
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
 data['npulses'] = data['npulses'].clip(upper=maxpulses)
 print data
+
+
+data = data[data['addr'] != 894]
+data = data[data['addr'] != 900]
+data = data[data['addr'] != 909]
+data = data[data['addr'] != 939]
+data = data[data['addr'] != 955]
+data = data[data['addr'] != 992]
+data = data[data['addr'] != 1015]
 
 
 # LaTEX quality figures 
