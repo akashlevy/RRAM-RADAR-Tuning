@@ -42,11 +42,13 @@ print data
 
 # Plot WL voltage and selections
 medians.plot(title='FPPV WL Voltage Selection', logy=False, xlim=(2.2, 2.7), ylim=(0, 60), linewidth=2, figsize=(4,3))
-
+for i, v, r in data[:5]:
+    plt.annotate('Range %i: %.2fV' % (i,v), xy=(v, r), xytext=(v, r+5*i), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment='left', verticalalignment='center')
+plt.annotate('Range %i: %.2fV' % (6,vs[5]), xy=(vs[5], rs[5]), xytext=(vs[5], rs[5]+20), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment='left', verticalalignment='center')
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Median Resistance (k$\\Omega$)')
 leg = plt.legend([''], handletextpad=0.5, borderpad=0.2)
-leg.set_title(title='BLV=1.6V, PW=100ns', prop={'size': 11})
+leg.set_title(title='BLV=2V\nPW=100ns', prop={'size': 11})
 plt.tight_layout()
 plt.savefig('figs/fppv-wl-sweep.eps')
 plt.show()
