@@ -1,6 +1,6 @@
 import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
-
+import matplotlib.patches as mpatches
 
 # Filter parameters
 maxpulses = 50
@@ -10,7 +10,7 @@ maxpulses = 50
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 for step in np.arange(0.01, 0.13, 0.01):
-    data = pd.read_csv('data/ispp-wl%.2f-bl0.05-sl0.30-4.30-5-27-20.csv' % step, delimiter='\t', names=names, index_col=False)
+    data = pd.read_csv('data/ispp-wl%.2f-bl0.05-sl0.30-0.30-5-23-20.csv' % step, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets']
     data['stepsize'] = step
     rlos = data['rlo'].unique()
@@ -50,7 +50,8 @@ npulses_mean = npulses.mean()
 print npulses_mean
 npulses_std = npulses.std()
 print npulses_std
-npulses_mean.plot.bar(title='ISPP: Mean Pulses vs. Step Size', figsize=(4,3), color=['r' if s < 0.99 else 'c' for s in grouped['success'].mean()]) #, yerr=npulses_std) 
+npulses_mean.plot.bar(title='ISPP: Mean Pulses vs. Step Size', figsize=(4,3), color=['r' if s < 0.99 else 'c' for s in grouped['success'].mean()]) #, yerr=npulses_std)
+plt.legend(['$<$99\% success rate', '$\geq$99\% success rate'])
 plt.xlabel('Step Size')
 plt.ylabel('Mean Pulses Required')
 plt.tight_layout()

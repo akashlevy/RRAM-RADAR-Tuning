@@ -5,17 +5,17 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 # Filter parameters
-maxpulses = 100
+maxpulses = 50
 
 
 # Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.02, 0.12, 0.02)
-starts = np.arange(1.1, 1.55, 0.05)
+steps = np.arange(0.02, 0.15, 0.01)
+starts = np.arange(0.4, 2.2, 0.2)
 for step in steps:
     for start in starts:
-        fname = 'data/sl-opt/sdr-wl0.06-bl0.04-sl%.2f-%.2f-5-27-20.csv' % (step,start)
+        fname = 'data/sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-5-27-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets']
@@ -26,18 +26,11 @@ for step in steps:
         datas.append(data)
 data = pd.concat(datas)
 
-#data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
-#data['npulses'] = data['npulses'].clip(upper=maxpulses)
-print data
+ignore = [800, 847, 850, 854, 900, 915, 937, 939, 955, 1007, 1014, 1021, 1029]
+data = data[~data['addr'].isin(ignore)]
 
-
-data = data[data['addr'] != 894]
-data = data[data['addr'] != 900]
-data = data[data['addr'] != 909]
-data = data[data['addr'] != 939]
-data = data[data['addr'] != 955]
-data = data[data['addr'] != 992]
-data = data[data['addr'] != 1015]
+data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
+data['npulses'] = data['npulses'].clip(upper=maxpulses)
 
 
 # LaTEX quality figures 

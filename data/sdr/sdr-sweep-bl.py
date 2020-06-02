@@ -27,15 +27,6 @@ data['npulses'] = data['npulses'].clip(upper=maxpulses)
 print data
 
 
-data = data[data['addr'] != 894]
-data = data[data['addr'] != 900]
-data = data[data['addr'] != 909]
-data = data[data['addr'] != 939]
-data = data[data['addr'] != 955]
-data = data[data['addr'] != 992]
-data = data[data['addr'] != 1015]
-
-
 # LaTEX quality figures 
 mpl.rcParams.update(
     {
