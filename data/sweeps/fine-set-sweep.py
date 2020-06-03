@@ -46,7 +46,7 @@ gradpw = (y2-y1)/(x2-x1)
 
 
 # Plot
-ax = means.unstack().plot(title='BL Voltage Sweep (Range 1-6)', logy=False, xlim=(2, 3), ylim=(0, 60), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
+ax = means.unstack().plot(title='Fine SET BL Voltage Sweep', logy=False, xlim=(2, 3), ylim=(0, 60), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
 plt.plot([2*x1-x2, 2*x2-x1], [y1-gradpw*(x2-x1), y2+gradpw*(x2-x1)], 'r:')
 plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(x1, 54), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='left', verticalalignment='center')
 plt.xlabel('BL Voltage (V)')

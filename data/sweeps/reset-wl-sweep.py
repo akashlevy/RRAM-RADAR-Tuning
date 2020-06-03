@@ -36,13 +36,13 @@ gradpw = (y2-y1)/(x2-x1)
 print gradpw
 
 # Plot
-means.plot(title='RESET WL Voltage Sweep', logy=False, xlim=(2.5, 3.5), ylim=(0, 60), linewidth=2, figsize=(4,3))
+means.plot(title='Fine RESET WL Voltage Sweep', logy=False, xlim=(2.5, 3.5), ylim=(0, 60), linewidth=2, figsize=(4,3))
 plt.plot([2*x1-x2, x2+0.1], [y1-gradpw*(x2-x1), y2+0.1*gradpw], 'r:', linewidth=2)
 plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(2.8, 25), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
 leg = plt.legend([''], columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})
-leg.set_title(title='SLV=2.5V, PW=100ns', prop={'size': 11})
+leg.set_title(title='VSL=2.5V, PW=100ns', prop={'size': 11})
 plt.tight_layout()
 plt.savefig('figs/wl-reset.eps')
 plt.show()

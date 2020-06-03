@@ -49,13 +49,13 @@ gradpw = (y2-y1)/(x2-x1)
 print gradpw
 
 # Plot
-ax = means.plot(title='SET WL Voltage Sweep', logy=False, xlim=(2, 2.55), ylim=(0, 60), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
+ax = means.plot(title='Fine SET WL Voltage Sweep', logy=False, xlim=(2, 2.55), ylim=(0, 60), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
 plt.plot([3*x1-2*x2, 2*x2-x1], [y1-2*gradpw*(x2-x1), y2+gradpw*(x2-x1)], 'r:')
 plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(2.4, 30), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
 leg = plt.legend([''], columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})
-leg.set_title(title='BLV=2V, PW=100ns', prop={'size': 11})
+leg.set_title(title='VBL=2V, PW=100ns', prop={'size': 11})
 plt.tight_layout()
 plt.savefig('figs/ispp-wl-sweep.eps')
 plt.show()

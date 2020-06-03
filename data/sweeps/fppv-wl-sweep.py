@@ -48,7 +48,7 @@ plt.annotate('Range %i: %.2fV' % (6,vs[5]), xy=(vs[5], rs[5]), xytext=(vs[5], rs
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Median Resistance (k$\\Omega$)')
 leg = plt.legend([''], handletextpad=0.5, borderpad=0.2)
-leg.set_title(title='BLV=2V\nPW=100ns', prop={'size': 11})
+leg.set_title(title='VBL=2V\nPW=100ns', prop={'size': 11})
 plt.tight_layout()
 plt.savefig('figs/fppv-wl-sweep.eps')
 plt.show()

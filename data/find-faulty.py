@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('sdr/data/sl-opt/sdr-wl0.06-bl0.04-sl0.10-1.50-5-27-20.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('sdr/data/sl-opt/sdr-wl0.06-bl0.40-sl0.01-0.00-6-1-20.csv', delimiter='\t', names=names, index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
-print data
+print data[data['success'] == 0]
 
 
 # LaTEX quality figures 
@@ -30,7 +30,7 @@ print 'Mean success rate:', data['success'].mean()
 
 # ISPP Mean Step
 grouped = data.groupby(['addr'])
-npulses = grouped['npulses']
+npulses = grouped['success']
 npulses_mean = npulses.mean()
 npulses_mean.plot()
 plt.show()

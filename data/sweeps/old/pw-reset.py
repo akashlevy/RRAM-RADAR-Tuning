@@ -35,7 +35,7 @@ stds = rf.std()/1000.
 means.unstack().plot(title='RESET Pulse Width: SL Voltage Sweep', logy=False, xlim=(1, 4), ylim=(0, 80), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
 plt.xlabel('SL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
-plt.legend(['100ns', '200ns', '300ns'], title='WLV=4V, PW=')
+plt.legend(['100ns', '200ns', '300ns'], title='VWL=4V, PW=')
 plt.tight_layout()
 plt.savefig('pw-reset.eps')
 plt.show()

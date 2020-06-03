@@ -11,11 +11,11 @@ maxpulses = 50
 # Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.02, 0.15, 0.01)
-starts = np.arange(0.4, 2.2, 0.2)
+steps = np.arange(0.01, 0.16, 0.01)
+starts = np.arange(0, 2.2, 0.2)
 for step in steps:
     for start in starts:
-        fname = 'data/sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-5-27-20.csv' % (step,start)
+        fname = 'data/sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-6-1-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets']
@@ -26,7 +26,7 @@ for step in steps:
         datas.append(data)
 data = pd.concat(datas)
 
-ignore = [800, 847, 850, 854, 900, 915, 937, 939, 955, 1007, 1014, 1021, 1029]
+ignore = [800, 809, 847, 850, 854, 900, 909, 915, 937, 939, 955, 988, 993, 1007, 1014, 1021, 1029]
 data = data[~data['addr'].isin(ignore)]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
@@ -48,6 +48,9 @@ plt.rc('font', family='serif', serif='Times', size=13)
 for l in range(8):
     fig = plt.figure()
     ax = Axes3D(fig)
+    ax.set_xlabel('SL Step Size (V)')
+    ax.set_ylabel('SL Start Voltage (V)')
+    ax.set_zlabel('\# Pulses Required')
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['npulses'].mean()
     grid = np.meshgrid(steps, starts)
     print d.unstack()
@@ -57,37 +60,12 @@ for l in range(8):
 
     fig = plt.figure()
     ax = Axes3D(fig)
+    ax.set_xlabel('SL Step Size (V)')
+    ax.set_ylabel('SL Start Voltage (V)')
+    ax.set_zlabel('Success Rate')
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['success'].mean()
     grid = np.meshgrid(steps, starts)
     print d.unstack()
-    print d.min(), d.idxmin()
+    print d.max(), d.idxmax()
     ax.plot_surface(grid[0], grid[1], d.unstack().T)
     plt.show()
-
-
-# SDR Mean Step
-grouped = data.groupby(['stepsize'])
-npulses = grouped['npulses']
-npulses_mean = npulses.mean()
-print npulses_mean
-npulses_std = npulses.std()
-print npulses_std
-npulses_mean.plot.bar(title='SDR: Mean Pulses vs. Step Size', figsize=(4,3), yerr=npulses_std)
-plt.xlabel('Step Size')
-plt.ylabel('Mean Pulses Required')
-plt.tight_layout()
-plt.savefig('sdr-mean-pulses-step.eps')
-plt.show()
-
-
-# SDR Mean Success Rate
-grouped = data.groupby(['stepsize'])
-success = grouped['success']
-success_mean = success.mean()
-print success_mean
-success_mean.plot.bar(title='SDR: Success Rate vs. Step Size', figsize=(4,3))
-plt.xlabel('Step Size')
-plt.ylabel('Success Rate')
-plt.tight_layout()
-plt.savefig('sdr-mean-success-step.eps')
-plt.show()
