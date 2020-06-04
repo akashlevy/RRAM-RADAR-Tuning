@@ -11,10 +11,11 @@ datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 for step in np.arange(0.01, 0.13, 0.01):
     data = pd.read_csv('data/ispp-wl%.2f-bl0.05-sl0.30-0.30-5-23-20.csv' % step, delimiter='\t', names=names, index_col=False)
-    data['npulses'] = data['nsets'] + data['nresets']
+    data['npulses'] = data['nsets'] + data['nresets'] - 1
     data['stepsize'] = step
     rlos = data['rlo'].unique()
     data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
+    data = data[data['bin'] != 7]
     datas.append(data)
 data = pd.concat(datas)
 data = data[data['addr'] != 850]

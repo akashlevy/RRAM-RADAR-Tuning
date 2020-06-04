@@ -3,15 +3,17 @@ import matplotlib.pyplot as plt
 
 
 # Filter parameters
-maxpulses = 50
+maxpulses = 200
 
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('data/fppv-expt1-5-31-20.csv', delimiter='\t', names=names, index_col=False)
-data['npulses'] = data['nsets'] + data['nresets']
+data = pd.read_csv('data/fppv-eval-wl-6-3-20.csv', delimiter='\t', names=names, index_col=False)
+data['npulses'] = data['nsets'] + data['nresets'] - 1
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
+data = data[data['bin'] != 7]
+
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
 data['npulses'] = data['npulses'].clip(upper=maxpulses)

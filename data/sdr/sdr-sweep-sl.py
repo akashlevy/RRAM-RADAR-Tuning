@@ -18,11 +18,12 @@ for step in steps:
         fname = 'data/sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-6-1-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
-        data['npulses'] = data['nsets'] + data['nresets']
+        data['npulses'] = data['nsets'] + data['nresets'] - 1
         data['stepsize'] = step
         data['start'] = start
         rlos = data['rlo'].unique()
         data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
+        data = data[data['bin'] != 7]
         datas.append(data)
 data = pd.concat(datas)
 
@@ -39,13 +40,14 @@ mpl.rcParams.update(
     'text.usetex': True,
     'pgf.texsystem': 'lualatex',
     'pgf.rcfonts': True,
+    'axes.labelpad': 5,
     }
 )
 plt.rc('font', family='serif', serif='Times', size=13)
 
 
 # Per-level optimization
-for l in range(8):
+for l in range(7):
     fig = plt.figure()
     ax = Axes3D(fig)
     ax.set_xlabel('SL Step Size (V)')
