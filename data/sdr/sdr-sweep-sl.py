@@ -15,7 +15,7 @@ steps = np.arange(0.01, 0.16, 0.01)
 starts = np.arange(0, 2.2, 0.2)
 for step in steps:
     for start in starts:
-        fname = 'data/sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-6-1-20.csv' % (step,start)
+        fname = 'data/option1/sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-6-1-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1

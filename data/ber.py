@@ -21,7 +21,7 @@ plt.tight_layout()
 
 # Load SDR data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-fnames = ['ispp/data/ispp-eval-wl-6-3-20.csv', 'fppv/data/fppv-eval-wl-6-3-20.csv','sdr/data/sdr-eval-bl-opt-6-2-20.csv']
+fnames = ['ispp/data/ispp-eval-wl-6-3-20.csv', 'fppv/data/fppv-test.csv','sdr/data/option1/sdr-eval-wl-6-3-20.csv']
 for fname in fnames:
     data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets'] - 1
@@ -32,23 +32,23 @@ for fname in fnames:
 
     pulses = []
     bers = []
-    mp = range(200, 2, -1)
-    for maxpulses in range(200, 1, -1):
+    for maxpulses in range(200, 0, -1):
         data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
         data['npulses'] = data['npulses'].clip(upper=maxpulses)
         pulses.append(data['npulses'].mean())
         bers.append(1-data['success'].mean())
         if maxpulses == 200:
-            pulses.append(12)
+            pulses.append(15)
             bers.append(1-data['success'].mean())
     print pulses
     print bers
     plt.semilogy(pulses, np.array(bers)*100)
 
-plt.semilogy([0, 12], [1, 1], ':')
+plt.semilogy([0, 15], [1, 1], ':')
 plt.legend(['ISPP', 'FPPV', 'SDR'], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})
 plt.xlim(2, 12)
-plt.ylim(0.1, 100)
-ax.yaxis.set_major_formatter(FormatStrFormatter('%s'))
+plt.ylim(0.4, 100)
+ax.xaxis.set_major_formatter(FormatStrFormatter('%d'))
+ax.yaxis.set_major_formatter(FormatStrFormatter('%d'))
 plt.tight_layout()
 plt.show()
