@@ -28,7 +28,6 @@ for fname in fnames:
     rlos = data['rlo'].unique()
     data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
     data = data[data['bin'] != 7]
-    print data
 
     pulses = []
     bers = []
@@ -40,8 +39,6 @@ for fname in fnames:
         if maxpulses == 200:
             pulses.append(15)
             bers.append(1-data['success'].mean())
-    print pulses
-    print bers
     plt.semilogy(pulses, np.array(bers)*100)
 
 plt.semilogy([0, 15], [1, 1], ':')
