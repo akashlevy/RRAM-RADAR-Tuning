@@ -21,13 +21,18 @@ plt.tight_layout()
 
 # Load SDR data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-fnames = ['ispp/data/ispp-eval-wl-6-3-20.csv', 'fppv/data/fppv-test.csv','sdr/data/option1/sdr-eval-wl-6-3-20.csv']
+fnames = ['ispp/data/ispp-eval-wl-6-3-20.csv', 'fppv/data/fppv-test.csv','sdr/data/option1/sdr-eval-wl-6-3-20.csv', 'sdr/data/option2/sdr-eval-bl-opt-6-5-20.csv', ]
 for fname in fnames:
     data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets'] - 1
     rlos = data['rlo'].unique()
     data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
     data = data[data['bin'] != 7]
+    print data.size
+    badaddrs = [4115, 4116, 4150, 4170, 4242, 4266, 4295, 4368, 4391, 4421, 4423, 4437, 4467, 4471, 4485, 4494, 4507, 4539, 4554, 4568, 4572, 4611, 4612, 4621, 4634, 4636, 4753, 4829, 4854, 4907, 4933, 4934, 4935, 4937, 4962, 4967, 4982, 4986, 4989]
+    print len(badaddrs)
+    data = data[~data['addr'].isin(badaddrs)]
+    print data.size
 
     pulses = []
     bers = []
@@ -42,9 +47,9 @@ for fname in fnames:
     plt.semilogy(pulses, np.array(bers)*100)
 
 plt.semilogy([0, 15], [1, 1], ':')
-plt.legend(['ISPP', 'FPPV', 'SDR'], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})
-plt.xlim(2, 12)
-plt.ylim(0.4, 100)
+plt.legend(['ISPP', 'FPPV', 'SDCFC'], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})
+plt.xlim(2, 11)
+#plt.ylim(0.4, 100)
 ax.xaxis.set_major_formatter(FormatStrFormatter('%d'))
 ax.yaxis.set_major_formatter(FormatStrFormatter('%d'))
 plt.tight_layout()

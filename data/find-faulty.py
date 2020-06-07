@@ -4,10 +4,11 @@ import matplotlib.pyplot as plt
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('sdr/data/sl-opt/sdr-wl0.06-bl0.40-sl0.01-0.00-6-1-20.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('sdr/data/option3/sl-opt/sdr-wl0.06-bl0.40-sl0.15-2.00-6-5-20.csv', delimiter='\t', names=names, index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
+data = data[data['bin'] != 7]
 print data[data['success'] == 0]
 
 
@@ -34,3 +35,7 @@ npulses = grouped['success']
 npulses_mean = npulses.mean()
 npulses_mean.plot()
 plt.show()
+
+addr = data.groupby(['addr'])['success'].mean()
+print addr
+print addr[addr <= 0.6]
