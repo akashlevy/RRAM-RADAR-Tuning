@@ -21,7 +21,7 @@ plt.tight_layout()
 
 # Load SDR data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-fnames = ['ispp/data/ispp-4wl-eval-6-6-20.csv', 'fppv/data/fppv-4wl-eval-6-6-20.csv', 'fppv/data/fppv-4wl-eval-6-6-20.csv', 'sdr/data/option1/sdr-opt1-4wl-eval-6-6-20.csv', 'sdr/data/option2/sdr-opt2-4wl-eval-6-6-20.csv', 'sdr/data/option3/sdr-opt3-4wl-eval-6-6-20.csv']
+fnames = ['ispp/data/ispp-4wl-eval-6-6-20.csv', 'fppv/data/fppv-4wl-eval-6-6-20.csv', 'fppv/data/fppv-4wl-eval-6-6-20.csv', 'sdr/data/option1/sdr-opt1-4wl-eval-6-6-20.csv']
 for i, fname in enumerate(fnames):
     data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets'] - 1
@@ -50,6 +50,8 @@ for i, fname in enumerate(fnames):
         plt.semilogy(pulses, bers, '--')
 
     argerr = np.argmin(np.abs(bers - 1))
+    print fname
+    print pulses[argerr], bers[argerr]
     print pulses[argerr-1], bers[argerr-1]
     plt.annotate('%.2f' % pulses[argerr-1], xy=(pulses[argerr-1], bers[argerr-1]), xytext=(pulses[argerr-1]+0.25, 4), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 
