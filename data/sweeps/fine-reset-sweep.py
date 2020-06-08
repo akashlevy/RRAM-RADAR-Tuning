@@ -50,10 +50,11 @@ print gradpw
 # Plot
 ax = means.plot(title='Fine RESET SL Voltage Sweep', logy=False, xlim=(1, 2.5), ylim=(0, 60), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
 plt.plot([2*x1-x2, 2*x2-x1], [y1-gradpw*(x2-x1), y2+gradpw*(x2-x1)], 'r:', linewidth=2)
-plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(x1, 50), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
+plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(2.0, y1), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 plt.xlabel('SL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
-plt.legend(['VWL=3.5V, PW=100ns'], columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})
+leg = plt.legend([''], columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})
+leg.set_title(title='VWL=3.5V, PW=100ns', prop={'size': 11})
 plt.tight_layout()
 plt.savefig('figs/fine-reset-sweep.eps')
 plt.show()
