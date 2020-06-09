@@ -15,7 +15,7 @@ steps = np.arange(0.01, 0.16, 0.01)
 starts = np.arange(0, 2.2, 0.2)
 for step in steps:
     for start in starts:
-        fname = 'data/option3/sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-6-5-20.csv' % (step,start)
+        fname = 'data/infopt/sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-6-6-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
@@ -28,7 +28,7 @@ for step in steps:
 data = pd.concat(datas)
 
 #ignore = [800, 809, 847, 850, 854, 900, 909, 915, 937, 939, 955, 988, 993, 1007, 1014, 1021, 1029]
-ignore = [1774, 1777, 1789, 1794, 1834, 1843, 1896, 1918, 1935, 1945, 1947]
+ignore = [1707, 1753, 1774, 1789, 1794, 1843, 1883, 1900, 1935, 1945]
 data = data[~data['addr'].isin(ignore)]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)

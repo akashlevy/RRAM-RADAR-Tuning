@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('fppv/data/fppv-4wl-eval-6-6-20.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('sdr/data/infopt/sdr-wl0.06-bl0.40-sl0.15-2.00-6-6-20.csv', delimiter='\t', names=names, index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
@@ -37,6 +37,6 @@ npulses_mean.plot()
 plt.show()
 
 addr = data.groupby(['addr'])['success'].mean()
-addr = addr[addr >= 0.7]
-addr = addr[addr <= 0.75]
+#addr = addr[addr >= 0.7]
+addr = addr[addr <= 0.8]
 addr.to_csv('badaddrs.csv')

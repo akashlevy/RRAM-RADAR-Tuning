@@ -13,7 +13,7 @@ datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 steps = np.arange(0.02, 0.74, 0.04)
 for step in steps:
-        fname = 'data/option3/bl-opt/sdr-wl0.06-bl%.2f-sl0.15-5.00-6-6-20.csv' % step
+        fname = 'data/infopt/bl-opt/sdr-wl0.06-bl%.2f-sl0.15-6.00-6-8-20.csv' % step
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
         data['stepsize'] = step
