@@ -24,7 +24,7 @@ for step in steps:
 data = pd.concat(datas)
 
 #ignore = [800, 809, 847, 850, 854, 900, 909, 915, 937, 939, 955, 988, 993, 1007, 1014, 1021, 1029]
-ignore = [1774, 1777, 1789, 1794, 1834, 1843, 1896, 1918, 1935, 1945, 1947]
+ignore = [1706, 1707, 1753, 1768, 1774, 1789, 1793, 1794, 1808, 1883]
 data = data[~data['addr'].isin(ignore)]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
@@ -42,17 +42,22 @@ mpl.rcParams.update(
 )
 plt.rc('font', family='serif', serif='Times', size=13)
 
+'''Smooth using filter'''
+def smooth(y, box_pts=5):
+    box = np.ones(box_pts) / box_pts
+    return np.concatenate((y[:box_pts/2], np.convolve(y, box, mode='valid'), y[-box_pts/2+1:]))
 
 # Per-level optimization
 for l in range(7):
     d = data[data['bin'] == l].groupby(['stepsize'])['npulses'].mean()
     print d
+    print smooth(d.values)
     print d.min(), d.idxmin()
     plt.figure(figsize=(4,3))
     plt.title('VBL Step Size Optimization (Range %d)' % (l))
     plt.xlabel('BL Step Size (V)')
     plt.ylabel('\# Pulses Required')
-    plt.plot(d)
+    plt.plot(d.keys(), smooth(d.values))
     plt.tight_layout()
     plt.savefig('figs/sdr-bl-opt-range-%d.eps' % (l))
     plt.show()

@@ -28,7 +28,7 @@ for step in steps:
 data = pd.concat(datas)
 
 #ignore = [800, 809, 847, 850, 854, 900, 909, 915, 937, 939, 955, 988, 993, 1007, 1014, 1021, 1029]
-ignore = [1707, 1753, 1774, 1789, 1794, 1843, 1883, 1900, 1935, 1945]
+ignore = [1706, 1707, 1753, 1768, 1774, 1789, 1793, 1794, 1808, 1883]
 data = data[~data['addr'].isin(ignore)]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)

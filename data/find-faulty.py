@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('sdr/data/infopt/sdr-wl0.06-bl0.40-sl0.15-2.00-6-6-20.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('sdr/data/option4/sl-opt/sdr-wl0.06-bl0.40-sl0.15-2.00-6-8-20.csv', delimiter='\t', names=names, index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
