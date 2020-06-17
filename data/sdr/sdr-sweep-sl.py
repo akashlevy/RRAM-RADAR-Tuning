@@ -41,7 +41,7 @@ mpl.rcParams.update(
     'text.usetex': True,
     'pgf.texsystem': 'lualatex',
     'pgf.rcfonts': True,
-    'axes.labelpad': 5,
+    'axes.labelpad': 7,
     }
 )
 plt.rc('font', family='serif', serif='Times', size=13)
@@ -51,9 +51,10 @@ plt.rc('font', family='serif', serif='Times', size=13)
 for l in range(7):
     fig = plt.figure()
     ax = Axes3D(fig)
-    ax.set_xlabel('SL Step Size (V)')
-    ax.set_ylabel('SL Start Voltage (V)')
-    ax.set_zlabel('\# Pulses Required')
+    ax.set_title('VSL Step Size Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_xlabel('SL Step Size (V)', fontsize=15)
+    ax.set_ylabel('SL Start Voltage (V)', fontsize=15)
+    ax.set_zlabel('\# Pulses Required', fontsize=15)
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['npulses'].mean()
     grid = np.meshgrid(steps, starts)
     print d.unstack()
@@ -63,9 +64,10 @@ for l in range(7):
 
     fig = plt.figure()
     ax = Axes3D(fig)
-    ax.set_xlabel('SL Step Size (V)')
-    ax.set_ylabel('SL Start Voltage (V)')
-    ax.set_zlabel('Success Rate')
+    ax.set_title('VSL Step Size Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_xlabel('SL Step Size (V)', fontsize=15)
+    ax.set_ylabel('SL Start Voltage (V)', fontsize=15)
+    ax.set_zlabel('Success Rate', fontsize=15)
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['success'].mean()
     grid = np.meshgrid(steps, starts)
     print d.unstack()

@@ -21,8 +21,8 @@ plt.tight_layout()
 
 # Load SDR data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-#fnames = ['ispp/data/ispp-4wl-eval-chip1-6-6-20.csv', 'fppv/data/fppv-4wl-eval-chip1-6-6-20.csv', 'fppv/data/fppv-4wl-eval-chip1-6-6-20.csv', 'sdr/data/infopt/sdr-infopt-4wl-eval-chip1-6-8-20.csv']
-fnames = ['ispp/data/ispp-4wl-eval-chip1-20k-6-6-20.csv', 'fppv/data/fppv-4wl-eval-chip1-20k-6-6-20.csv', 'fppv/data/fppv-4wl-eval-chip1-20k-6-6-20.csv', 'sdr/data/infopt/sdr-infopt-4wl-eval-chip1-20k-6-8-20.csv']
+fnames = ['ispp/data/ispp-4wl-eval-chip1-6-6-20.csv', 'fppv/data/fppv-4wl-eval-chip1-6-6-20.csv', 'fppv/data/fppv-4wl-eval-chip1-6-6-20.csv', 'sdr/data/infopt/sdr-infopt-4wl-eval-chip1-6-8-20.csv']
+fnames = ['ispp/data/ispp-1wl-eval-chip2-6-11-20.csv', 'fppv/data/fppv-1wl-eval-chip2-6-11-20.csv', 'fppv/data/fppv-1wl-eval-chip2-6-11-20.csv', 'sdr/data/infopt/sdr-infopt-1wl-eval-chip2-6-11-20.csv']
 for i, fname in enumerate(fnames):
     data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets'] - 1
