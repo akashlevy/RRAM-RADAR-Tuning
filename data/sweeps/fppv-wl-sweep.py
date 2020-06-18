@@ -1,7 +1,11 @@
 import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('data/set-sweep-wl-inner-5-31-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
+chipnum = 1
+if chipnum == 1:
+    data = pd.read_csv('data/set-sweep-wl-inner-5-31-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']) # chip1
+if chipnum == 2:
+    data = pd.read_csv('data/set-sweep-wl-inner-chip2-6-15-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']) # chip2
 data = data[data['pw'] == 100]
 data = data[data['blv'] == 2]
 print data
@@ -31,17 +35,20 @@ rf = grouped['rf']
 medians = rf.median()/1000.
 stds = rf.std()/1000.
 print medians
-medians.to_csv('results/fppv.csv')
+medians.to_csv('results/fppv%s.csv' % chipnum)
 
 pts = medians.values
-vs = list(reversed([2.26, 2.31, 2.36, 2.41, 2.47, 2.53]))
+if chipnum == 1:
+    vs = list(reversed([2.26, 2.31, 2.36, 2.41, 2.47, 2.53])) # chip1
+if chipnum == 2:
+    vs = list(reversed([2.28, 2.33, 2.38, 2.44, 2.52, 2.55])) # chip2
 vis = [int(round((v-2)/0.01)) for v in vs]
 rs = [pts[vi] for vi in vis]
 data = zip(range(1,7), vs, rs)
 print data
 
 # Plot WL voltage and selections
-medians.plot(title='FPPV WL Voltage Selection', logy=False, xlim=(2.2, 2.7), ylim=(0, 60), linewidth=2, figsize=(4,3))
+medians.plot(title='FPPV WL Voltage Selection', logy=False, xlim=(2.2, 2.8), ylim=(0, 60), linewidth=2, figsize=(4,3))
 for i, v, r in data[:5]:
     plt.annotate('Range %i: %.2fV' % (i,v), xy=(v, r), xytext=(v, r+5*i), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment='left', verticalalignment='center')
 plt.annotate('Range %i: %.2fV' % (6,vs[5]), xy=(vs[5], rs[5]), xytext=(vs[5], rs[5]+20), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment='left', verticalalignment='center')
