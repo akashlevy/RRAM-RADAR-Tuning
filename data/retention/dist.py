@@ -4,10 +4,11 @@ import seaborn as sns
 
 # Define CB size
 cbsize = 32
+nranges = 8
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('data/writeispp2.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('data/writeispp-testrange.csv', delimiter='\t', names=names, index_col=False)
 rlos = data['rlo'].unique()
 print sorted(rlos)
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
@@ -35,20 +36,20 @@ plt.show()
 
 # Load data
 names = ['rf']
-data = pd.read_csv('data/readispp2.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('data/readispp-testrange.csv', delimiter='\t', names=names, index_col=False)
 data['rf'] = data['rf']/1000
 data['g'] = 1/data['rf']
-data['bin'] = ( data.index + data.index / cbsize ) % 32
+data['bin'] = ( data.index + data.index / cbsize ) % nranges
 print data
 
-ranges = [1, 3, 5, 7, 10, 13, 18, 31]
+ranges = range(8) #[1, 3, 5, 7, 10, 13, 18, 31]
 
 # Conductance plot
 for i in ranges:
     plt.xlim(0, 0.3)
     rdata = data[data['bin'] == i]
     print i
-    sns.distplot(rdata['g'],kde=False, bins=int(np.ceil((rdata['g'].max() - rdata['g'].min())/0.002)))
+    sns.distplot(rdata['g'],kde=False)
 plt.show()
 
 # Resistance plot
