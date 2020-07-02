@@ -7,7 +7,7 @@ cbsize = 32
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('data/writeispp.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('data/writeispp2.csv', delimiter='\t', names=names, index_col=False)
 rlos = data['rlo'].unique()
 print sorted(rlos)
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
@@ -35,13 +35,13 @@ plt.show()
 
 # Load data
 names = ['rf']
-data = pd.read_csv('data/readisppbake.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('data/readispp2.csv', delimiter='\t', names=names, index_col=False)
 data['rf'] = data['rf']/1000
 data['g'] = 1/data['rf']
 data['bin'] = ( data.index + data.index / cbsize ) % 32
 print data
 
-ranges = [0, 3, 5, 8, 12, 16, 20, 31]
+ranges = [1, 3, 5, 7, 10, 13, 18, 31]
 
 # Conductance plot
 for i in ranges:
@@ -61,4 +61,17 @@ plt.show()
 
 
 # Plot sigmas
-data.groupby('bin')
+data = data[data['bin'] <= 19]
+data = data[data['bin'] > 0]
+bindata = data.groupby('bin')
+means, stds = bindata['rf'].mean()*1000, bindata['rf'].std()*1000
+
+n = 2
+fit = np.polyfit(means, stds, n)
+print tuple(fit)
+x = np.linspace(4300, 12000)
+y = list(np.sum(np.array([fit[n-i] * x**i for i in range(n+1)]), axis=0))
+
+plt.semilogy(means, stds)
+plt.semilogy(x, y)
+plt.show()
