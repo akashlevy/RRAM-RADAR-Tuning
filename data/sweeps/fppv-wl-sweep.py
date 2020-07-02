@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 
 chipnum = 1
 if chipnum == 1:
-    data = pd.read_csv('data/set-sweep-wl-inner-5-31-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']) # chip1
+    #data = pd.read_csv('data/set-sweep-wl-inner-5-31-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']) # chip1
+    data = pd.read_csv('data/set-sweep-wl-1T4R-6-30-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']) # chip1
 if chipnum == 2:
     data = pd.read_csv('data/set-sweep-wl-inner-chip2-6-15-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']) # chip2
 data = data[data['pw'] == 100]
@@ -48,10 +49,10 @@ data = zip(range(1,7), vs, rs)
 print data
 
 # Plot WL voltage and selections
-medians.plot(title='FPPV WL Voltage Selection', logy=False, xlim=(2.2, 2.8), ylim=(0, 60), linewidth=2, figsize=(4,3))
-for i, v, r in data[:5]:
-    plt.annotate('Range %i: %.2fV' % (i,v), xy=(v, r), xytext=(v, r+5*i), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment='left', verticalalignment='center')
-plt.annotate('Range %i: %.2fV' % (6,vs[5]), xy=(vs[5], rs[5]), xytext=(vs[5], rs[5]+20), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment='left', verticalalignment='center')
+medians.plot(title='FPPV WL Voltage Selection', logy=False, xlim=(1.5, 3), ylim=(0, 50), linewidth=2, figsize=(4,3))
+# for i, v, r in data[:5]:
+#     plt.annotate('Range %i: %.2fV' % (i,v), xy=(v, r), xytext=(v, r+5*i), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment='left', verticalalignment='center')
+# plt.annotate('Range %i: %.2fV' % (6,vs[5]), xy=(vs[5], rs[5]), xytext=(vs[5], rs[5]+20), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment='left', verticalalignment='center')
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Median Resistance (k$\\Omega$)')
 leg = plt.legend([''], handletextpad=0.5, borderpad=0.2)
@@ -59,3 +60,18 @@ leg.set_title(title='VBL=2V\nPW=100ns', prop={'size': 11})
 plt.tight_layout()
 plt.savefig('figs/fppv-wl-sweep.eps')
 plt.show()
+
+# Plot WL voltage and selections
+medians = 1/medians
+medians.plot(title='FPPV WL Voltage Selection', logy=False, xlim=(1.5, 3), ylim=(0, 0.3), linewidth=2, figsize=(4,3))
+# for i, v, r in data[:5]:
+#     plt.annotate('Range %i: %.2fV' % (i,v), xy=(v, r), xytext=(v, r+5*i), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment='left', verticalalignment='center')
+# plt.annotate('Range %i: %.2fV' % (6,vs[5]), xy=(vs[5], rs[5]), xytext=(vs[5], rs[5]+20), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment='left', verticalalignment='center')
+plt.xlabel('WL Voltage (V)')
+plt.ylabel('Median Conductance (uS)')
+leg = plt.legend([''], handletextpad=0.5, borderpad=0.2)
+leg.set_title(title='VBL=2V\nPW=100ns', prop={'size': 11})
+plt.tight_layout()
+plt.savefig('figs/fppv-wl-sweep.eps')
+plt.show()
+
