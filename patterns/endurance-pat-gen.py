@@ -1,4 +1,7 @@
-for i, (startaddr, endaddr) in enumerate(zip(range(22528, 30720, 512), range(22528+512, 30729+512, 512))):
+addri = 31024
+addrf = 32048 # exclusive!
+
+for i, (startaddr, endaddr) in enumerate(zip(range(addri, addrf, 512), range(addri+512, addrf+512, 512))):
     with open('endurance-set-%s.digipatsrc' % i, 'w') as f:
 
         string = '''

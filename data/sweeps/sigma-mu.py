@@ -35,7 +35,7 @@ n = 1
 fit = np.polyfit(means, np.log(stds), n)
 print tuple(fit)
 print np.exp(fit)
-x = np.linspace(4e3, 15e3)
+x = np.linspace(4e3, 1e3)
 y = np.exp(fit[1] + fit[0]*x)
 
 # Stdev vs median
