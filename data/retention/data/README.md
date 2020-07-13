@@ -24,4 +24,5 @@ Experiment 7: 4.3 kOhm, 45-55 conductance writing, all same as expt 6, 5k endura
 Experiment 1: 5 kOhm, SBA allocated conductance for both read/write, 157C for 30 minutes, 11.5% BER, problems with levels 1-3
 Experiment 2: 5 kOhm, same as above (fixed conductance to be 40-60 with small adjustments), 127C for 30 minutes, 2.7% BER, problems with ranges 2 and 3 mostly
 Experiment 3: 5 kOhm, same as above except pure 40-60, 127C for 30 minutes, 1.26% BER, problems with ranges 1 and 2 mostly
-Experiment 4: 5 kOhm, same as above except read range reduced to 5.1 kOhm, 127C for 30 minutes
+Experiment 4: 5 kOhm, same as above except read range reduced to 5.1 kOhm, SBA write range allocation, 127C for 30 minutes
+Experiment 5: 5 kOhm, same as above except SBA write range allocation modified to be closer to 40-60 conductance for range 1, 0.3% BER
