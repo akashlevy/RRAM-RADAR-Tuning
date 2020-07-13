@@ -2,6 +2,7 @@
 import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from scipy.optimize import curve_fit
 
 # LaTEX quality figures 
 mpl.rcParams.update(
@@ -37,12 +38,15 @@ data = data[~data.groupby(['bin'])['g'].apply(is_outlier)]
 bindata = data.groupby('bin')
 means, stds = bindata['g'].mean(), bindata['g'].std()
 
-# 5th-order polynomial fit
-n = 5
-fit = np.polyfit(list(means) + [0, 0.0003], list(stds) + [0, 0], n)
-print tuple(fit)
+# ax/((ax)^3 + b) fit
+fitfn = lambda x, a, b: a * x/((a*x)**3 + b)
+popt, pcov = curve_fit(fitfn, means, stds)
+print (popt, pcov)
+print popt[0], popt[1]
+
+# Get points of fit curve
 x = np.linspace(0, 0.0003)
-y = np.array(np.sum(np.array([fit[n-i] * x**i for i in range(n+1)]), axis=0))
+y = fitfn(x, popt[0], popt[1])
 
 # Plot sigma-mu
 plt.figure(figsize=(4,3))
