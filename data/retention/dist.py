@@ -17,8 +17,6 @@ plt.rc('font', family='serif', serif='Times', size=13)
 
 # Define CB size
 cbsize = 32
-nranges = 8
-
 
 # # Load data
 # names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
@@ -47,20 +45,31 @@ nranges = 8
 #     sns.distplot(rdata['rf'],kde=False)
 # plt.show()
 
-Rmins = np.array([0.0001, 4.38, 4.84, 5.42, 6.16, 7.19, 9.23, 35])
-Rmaxs = np.array([4.3, 4.75, 5.3, 6.01, 6.99, 8.9, 25, 10000])
-Gmaxs = 1 / Rmins
-Gmins = 1 / Rmaxs
-for expt, pp in product(range(1, 7+1), ['pre','post']):
+for expt, pp, bpc in product(range(1, 7+1), ['pre','post'], (2,3)):
+    # Get resistance and conductance bounds for plots
+    nranges = 2**bpc
+    if bpc == 2:
+        Rmins = np.array([0.0001, 5.38, 6.93, 18])
+        Rmaxs = np.array([5.1, 6.48, 14, 10000])
+    if bpc == 3:
+        Rmins = np.array([0.0001, 4.38, 4.84, 5.42, 6.16, 7.19, 9.23, 35])
+        Rmaxs = np.array([4.3, 4.75, 5.3, 6.01, 6.99, 8.9, 25, 10000])
+    Gmaxs = 1 / Rmins
+    Gmins = 1 / Rmaxs
+
     # Load data
     names = ['rf']
-    data = pd.read_csv('data/readtest%d-%sbake.csv' % (expt, pp), delimiter='\t', names=names, index_col=False)
+    try:
+        data = pd.read_csv('data/readtest%dbpc%d-%sbake.csv' % (bpc, expt, pp), delimiter='\t', names=names, index_col=False)
+    except IOError as e:
+        print("Skipping:", e)
+        continue
     data['rf'] = data['rf']/1000
     data['g'] = 1/data['rf']
     data['bin'] = ( data.index + data.index / cbsize ) % nranges
     print data
 
-    ranges = range(8)
+    ranges = range(2**bpc)
 
     # Conductance plot
     plt.figure(figsize=(6, 4))
@@ -78,7 +87,7 @@ for expt, pp in product(range(1, 7+1), ['pre','post']):
     plt.ylabel('Frequency')
     plt.legend()
     plt.tight_layout()
-    plt.savefig('figs/dist%d-g-%sbake.png' % (expt, pp))
+    plt.savefig('figs/dist%d-%dbpc-g-%sbake.png' % (expt, bpc, pp))
     #plt.show()
 
     # Resistance plot
@@ -96,22 +105,10 @@ for expt, pp in product(range(1, 7+1), ['pre','post']):
     plt.ylabel('Frequency')
     plt.legend()
     plt.tight_layout()
-    plt.savefig('figs/dist%d-r-%sbake.png' % (expt, pp))
+    plt.savefig('figs/dist%d-%dbpc-r-%sbake.png' % (expt, bpc, pp))
     #plt.show()
 
-# # Fit to retention sigma
-# # Plot sigmas
-# data = data[data['bin'] <= 19]
-# data = data[data['bin'] > 0]
-# bindata = data.groupby('bin')
-# means, stds = bindata['rf'].mean()*1000, bindata['rf'].std()*1000
-
-# n = 2
-# fit = np.polyfit(means, stds, n)
-# print tuple(fit)
-# x = np.linspace(4300, 12000)
-# y = list(np.sum(np.array([fit[n-i] * x**i for i in range(n+1)]), axis=0))
-
-# plt.semilogy(means, stds)
-# plt.semilogy(x, y)
-# plt.show()
+    for i in range(2**bpc):
+        bindata = data[data['bin'] == i]
+        g = bindata['g']/1000
+        g.to_csv('results/g_%dbpc-expt%d-%s_range%d.csv' % (bpc, expt, pp, i), index=False, float_format='%.15f')
