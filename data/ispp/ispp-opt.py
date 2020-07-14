@@ -3,14 +3,14 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
 # Filter parameters
-maxpulses = 50
+maxpulses = 1000
 
 
 # Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-for step in np.arange(0.01, 0.13, 0.01):
-    data = pd.read_csv('data/ispp-wl%.2f-bl0.05-sl0.30-0.30-5-23-20.csv' % step, delimiter='\t', names=names, index_col=False)
+for step in np.arange(0.005, 0.13, 0.005):
+    data = pd.read_csv('data/ispp-wl%.3f-7-13-20.csv' % step, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets'] - 1
     data['stepsize'] = step
     rlos = data['rlo'].unique()
