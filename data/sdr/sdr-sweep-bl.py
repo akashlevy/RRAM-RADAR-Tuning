@@ -11,12 +11,16 @@ maxpulses = 50
 # Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.02, 0.66, 0.04)
+steps = np.arange(0.05, 0.5, 0.05)
+starts = np.arange(0, 1, 0.2)
 for step in steps:
-        fname = 'data/infopt/bl-opt/sdr-wl0.06-bl%.2f-sl0.15-6.00-6-8-20.csv' % step
+    for start in starts:
+        fname = 'data/infopt/bl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-6-6-20.csv' % (step,start)
+        print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
         data['stepsize'] = step
+        data['start'] = start
         rlos = data['rlo'].unique()
         data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
         data = data[data['bin'] != 7]
@@ -24,13 +28,11 @@ for step in steps:
 data = pd.concat(datas)
 
 #ignore = [800, 809, 847, 850, 854, 900, 909, 915, 937, 939, 955, 988, 993, 1007, 1014, 1021, 1029]
-#ignore = [1706, 1707, 1753, 1768, 1774, 1789, 1793, 1794, 1808, 1883]
-ignore = [1707, 1753, 1774, 1789, 1794, 1843, 1883, 1900, 1935, 1945]
+ignore = [1706, 1707, 1753, 1768, 1774, 1789, 1793, 1794, 1808, 1883]
 data = data[~data['addr'].isin(ignore)]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
 data['npulses'] = data['npulses'].clip(upper=maxpulses)
-print data
 
 
 # LaTEX quality figures 
@@ -39,35 +41,36 @@ mpl.rcParams.update(
     'text.usetex': True,
     'pgf.texsystem': 'lualatex',
     'pgf.rcfonts': True,
+    'axes.labelpad': 7,
     }
 )
 plt.rc('font', family='serif', serif='Times', size=13)
 
-'''Smooth using filter'''
-def smooth(y, box_pts=3):
-    box = np.ones(box_pts) / box_pts
-    return np.concatenate((y[:box_pts/2], np.convolve(y, box, mode='valid'), y[-box_pts/2+1:]))
 
 # Per-level optimization
 for l in range(7):
-    d = data[data['bin'] == l].groupby(['stepsize'])['npulses'].mean()
-    print d
-    print smooth(d.values)
+    fig = plt.figure()
+    ax = Axes3D(fig)
+    ax.set_title('VSL Step Size Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_xlabel('SL Step Size (V)', fontsize=15)
+    ax.set_ylabel('SL Start Voltage (V)', fontsize=15)
+    ax.set_zlabel('\# Pulses Required', fontsize=15)
+    d = data[data['bin'] == l].groupby(['stepsize', 'start'])['npulses'].mean()
+    grid = np.meshgrid(steps, starts)
+    print d.unstack()
     print d.min(), d.idxmin()
-    plt.figure(figsize=(4,3))
-    plt.title('VBL Step Size Optimization (Range %d)' % (l))
-    plt.xlabel('BL Step Size (V)')
-    plt.ylabel('\# Pulses Required')
-    plt.plot(d.keys(), smooth(d.values))
-    #plt.plot(d.keys(), d.values)
-    plt.tight_layout()
-    plt.savefig('figs/sdr-bl-opt-range-%d.eps' % (l))
+    ax.plot_surface(grid[0], grid[1], d.unstack().T)
     plt.show()
 
-    d = data[data['bin'] == l].groupby(['stepsize'])['success'].mean()
-    print d
+    fig = plt.figure()
+    ax = Axes3D(fig)
+    ax.set_title('VSL Step Size Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_xlabel('SL Step Size (V)', fontsize=15)
+    ax.set_ylabel('SL Start Voltage (V)', fontsize=15)
+    ax.set_zlabel('Success Rate', fontsize=15)
+    d = data[data['bin'] == l].groupby(['stepsize', 'start'])['success'].mean()
+    grid = np.meshgrid(steps, starts)
+    print d.unstack()
     print d.max(), d.idxmax()
-    plt.xlabel('BL Step Size (V)')
-    plt.ylabel('Success Rate')
-    plt.plot(d)
+    ax.plot_surface(grid[0], grid[1], d.unstack().T)
     plt.show()

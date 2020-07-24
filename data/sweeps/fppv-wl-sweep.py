@@ -39,7 +39,7 @@ medians.to_csv('results/fppv%s.csv' % chipnum)
 
 pts = medians.values
 if chipnum == 1:
-    vs = list(reversed([2.2, 2.3, 2.55, 2.7, 2.85, 3.15, 3.3])) # chip1
+    vs = list(reversed([2.17, 2.27, 2.39, 2.52, 2.68, 2.86, 3])) # chip1
 if chipnum == 2:
     vs = list(reversed([2.28, 2.33, 2.38, 2.44, 2.52, 2.55])) # chip2
 vis = [int(round((v-1.5)/0.01)) for v in vs]
@@ -48,11 +48,10 @@ data = zip(range(7), vs, rs)
 print data
 
 # Plot WL voltage and selections
-medians.plot(title='FPPV WL Voltage Selection', logy=False, xlim=(2, 3.5), ylim=(0, 40), linewidth=2, figsize=(4,3))
+medians.plot(title='FPPV WL Voltage Selection', logy=False, xlim=(2, 3.2), ylim=(0, 15), linewidth=2, figsize=(4,3))
 for i, v, r in data:
-    ha = 'left' if i != 1 else 'center'
-    ha = ha if i != 0 else 'right'
-    plt.annotate('Range %i: %.2fV' % (i,v), xy=(v, r), xytext=(v, (i+1)*5 if i != 0 else 2), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment=ha, verticalalignment='center')
+    ha = 'left' if i not in [0, 1] else 'right'
+    plt.annotate('Range %i: %.2fV' % (i,v), xy=(v, r), xytext=(v, (i+2)*1.7 if i not in [0,1] else (3.7 if i == 1 else 2)), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=1, headlength=1, linestyle='dotted'), fontsize=10, horizontalalignment=ha, verticalalignment='center')
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Median Resistance (k$\\Omega$)')
 leg = plt.legend([''], handletextpad=0.5, borderpad=0.2)

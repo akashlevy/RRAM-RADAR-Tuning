@@ -40,7 +40,7 @@ stds = rf.std()/1000.
 # Derivative and smoothing
 pts = means.values
 print pts
-x1, x2 = (2.23, 2.27)
+x1, x2 = (2.29, 2.34)
 xsi = (int(round((x1-1)/stepsize)), int(round((x2-1)/stepsize)))
 print xsi
 y1, y2 = pts[xsi[0]], pts[xsi[1]]
@@ -49,9 +49,9 @@ gradpw = (y2-y1)/(x2-x1)
 print gradpw
 
 # Plot
-ax = means.plot(title='Fine SET WL Voltage Sweep', logy=False, xlim=(2, 3), ylim=(0, 20), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
+ax = means.plot(title='SET WL Voltage Sweep', logy=False, xlim=(2, 3), ylim=(0, 15), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
 plt.plot([3*x1-2*x2, 3*x2-2*x1], [y1-2*gradpw*(x2-x1), y2+2*gradpw*(x2-x1)], 'r:')
-plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(2.6, 10), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
+plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(2.6, 8), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
 leg = plt.legend([''], columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})

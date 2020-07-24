@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('fppv/data/fppv-4wl-eval-chip2-6-17-20.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('sdr/data/infopt/sl-opt/sdr-wl0.070-bl0.40-sl0.05-0.20-7-19-20.csv', delimiter='\t', names=names, index_col=False)
 data['npulses'] = data['nsets'] + data['nresets']
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
@@ -31,12 +31,12 @@ print 'Mean success rate:', data['success'].mean()
 
 # ISPP Mean Step
 grouped = data.groupby(['addr'])
-npulses = grouped['success']
+npulses = grouped['npulses']
 npulses_mean = npulses.mean()
 npulses_mean.plot()
 plt.show()
 
-addr = data.groupby(['addr'])['success'].mean()
-addr = addr[addr > 0.8]
-addr = addr[addr < 0.9]
+addr = data.groupby(['addr'])['npulses'].mean()
+#addr = addr[addr > 0.8]
+addr = addr[addr > 360]
 addr.to_csv('badaddrs.csv')

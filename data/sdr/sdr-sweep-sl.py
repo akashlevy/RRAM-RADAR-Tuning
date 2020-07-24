@@ -5,17 +5,17 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 # Filter parameters
-maxpulses = 50
+maxpulses = 50000
 
 
 # Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.01, 0.16, 0.01)
-starts = np.arange(0, 2.2, 0.2)
+steps = np.arange(0.05, 0.51, 0.05)
+starts = np.arange(0.2, 1.01, 0.2)
 for step in steps:
     for start in starts:
-        fname = 'data/infopt/sl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-6-6-20.csv' % (step,start)
+        fname = 'data/sl-opt/sdr-wl0.070-bl0.40-sl%.2f-%.2f-7-19-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
@@ -28,7 +28,7 @@ for step in steps:
 data = pd.concat(datas)
 
 #ignore = [800, 809, 847, 850, 854, 900, 909, 915, 937, 939, 955, 988, 993, 1007, 1014, 1021, 1029]
-ignore = [1706, 1707, 1753, 1768, 1774, 1789, 1793, 1794, 1808, 1883]
+ignore = [8447]
 data = data[~data['addr'].isin(ignore)]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
