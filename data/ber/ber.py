@@ -26,7 +26,7 @@ plt.tight_layout()
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 if chipnum == 1:
     #fnames = ['../ispp/data/ispp-4wl-eval-chip1-6-6-20.csv', '../fppv/data/fppv-4wl-eval-chip1-6-6-20.csv', '../fppv/data/fppv-4wl-eval-chip1-6-6-20.csv', '../sdr/data/infopt/sdr-infopt-4wl-eval-chip1-6-8-20.csv']
-    fnames = ['../ispp/data/ispp-2wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-wl0.070-bl5.80-sl0.30-0.30-7-19-20.csv', '../fppv/data/fppv-wl0.070-bl5.80-sl0.30-0.30-7-19-20.csv', '../sdr/data/infopt/sl-opt/sdr-wl0.070-bl0.40-sl0.05-0.20-7-19-20.csv']
+    fnames = ['../ispp/data/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-wl0.070-bl5.80-sl0.30-0.30-7-19-20.csv', '../fppv/data/fppv-wl0.070-bl5.80-sl0.30-0.30-7-19-20.csv', '../sdr/data/sl-opt/sdr-wl0.070-bl0.40-sl0.05-0.20-7-19-20.csv']
 if chipnum == 2:
     fnames = ['../ispp/data/ispp-4wl-eval-chip2-6-17-20.csv', '../fppv/data/fppv-4wl-eval-chip2-6-17-20.csv', '../fppv/data/fppv-4wl-eval-chip2-6-17-20.csv', '../sdr/data/infopt/sdr-infopt-4wl-eval-chip2-6-17-20.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-1k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-6k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-11k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-20k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20.csv', '../ispp/data/ispp-wl0.06-bl0.80-sl0.30-7.00-6-22-20.csv']
 for i, fname in enumerate(fnames):

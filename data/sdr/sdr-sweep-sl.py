@@ -11,11 +11,11 @@ maxpulses = 50000
 # Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.05, 0.51, 0.05)
+steps = np.arange(0.02, 0.141, 0.02)
 starts = np.arange(0.2, 1.01, 0.2)
 for step in steps:
     for start in starts:
-        fname = 'data/sl-opt/sdr-wl0.070-bl0.40-sl%.2f-%.2f-7-19-20.csv' % (step,start)
+        fname = 'data/sl-opt/sdr-wl0.070-bl0.04-0.40-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
