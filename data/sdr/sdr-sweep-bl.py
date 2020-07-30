@@ -5,17 +5,17 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 # Filter parameters
-maxpulses = 50
+maxpulses = 50000
 
 
 # Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.05, 0.5, 0.05)
-starts = np.arange(0, 1, 0.2)
+steps = np.arange(0.02, 0.301, 0.04)
+starts = np.arange(0, 1.21, 0.4)
 for step in steps:
     for start in starts:
-        fname = 'data/infopt/bl-opt/sdr-wl0.06-bl0.40-sl%.2f-%.2f-6-6-20.csv' % (step,start)
+        fname = 'data/bl-opt/sdr-wl0.070-bl%.2f-%.2f-sl0.14-2.00-7-24-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
@@ -27,10 +27,13 @@ for step in steps:
         datas.append(data)
 data = pd.concat(datas)
 
-#ignore = [800, 809, 847, 850, 854, 900, 909, 915, 937, 939, 955, 988, 993, 1007, 1014, 1021, 1029]
-ignore = [1706, 1707, 1753, 1768, 1774, 1789, 1793, 1794, 1808, 1883]
+
+# Ignore bad cells
+ignore = []
 data = data[~data['addr'].isin(ignore)]
 
+
+# Success rate
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
 data['npulses'] = data['npulses'].clip(upper=maxpulses)
 
@@ -51,9 +54,11 @@ plt.rc('font', family='serif', serif='Times', size=13)
 for l in range(7):
     fig = plt.figure()
     ax = Axes3D(fig)
-    ax.set_title('VSL Step Size Optimization (Range %d)' % (l), fontsize=20)
-    ax.set_xlabel('SL Step Size (V)', fontsize=15)
-    ax.set_ylabel('SL Start Voltage (V)', fontsize=15)
+    plt.locator_params(axis='x', nbins=6)
+    plt.locator_params(axis='y', nbins=6)
+    ax.set_title('VBL Step Size Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_xlabel('BL Step Size (V)', fontsize=15)
+    ax.set_ylabel('BL Start Voltage (V)', fontsize=15)
     ax.set_zlabel('\# Pulses Required', fontsize=15)
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['npulses'].mean()
     grid = np.meshgrid(steps, starts)
@@ -64,9 +69,9 @@ for l in range(7):
 
     fig = plt.figure()
     ax = Axes3D(fig)
-    ax.set_title('VSL Step Size Optimization (Range %d)' % (l), fontsize=20)
-    ax.set_xlabel('SL Step Size (V)', fontsize=15)
-    ax.set_ylabel('SL Start Voltage (V)', fontsize=15)
+    ax.set_title('VBL Step Size Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_xlabel('BL Step Size (V)', fontsize=15)
+    ax.set_ylabel('BL Start Voltage (V)', fontsize=15)
     ax.set_zlabel('Success Rate', fontsize=15)
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['success'].mean()
     grid = np.meshgrid(steps, starts)
