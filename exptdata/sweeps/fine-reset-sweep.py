@@ -27,7 +27,7 @@ def is_outlier(s):
 data = data[~data.groupby(['slv','wlv'])['rf'].apply(is_outlier)]
 
 # Set up variables
-#data = data[data['slv']*1000 % 1 <= 1e-9]
+#data = data[data['slv']*1000 % 1 <= 1e-9] # select points more sparsely
 #data = data[data['wlv'] == 4]
 grouped = data.groupby('slv')
 
@@ -46,6 +46,7 @@ y1, y2 = pts[xsi[0]], pts[xsi[1]]
 print y1, y2
 gradpw = (y2-y1)/(x2-x1)
 print gradpw
+
 
 # Plot
 #title='RESET SL Voltage Sweep', 

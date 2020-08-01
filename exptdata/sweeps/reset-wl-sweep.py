@@ -1,8 +1,11 @@
 import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
+
+# Load data
 stepsize = 0.05
 data = pd.read_csv('data/reset-sweep-wl-200ns-step-0.05-7-30-20-augment.csv', delimiter='\t', names=['addr', 'pw', 'slv', 'wlv', 'ri', 'rf'])
+
 
 # LaTEX quality figures 
 mpl.rcParams.update(
@@ -13,6 +16,7 @@ mpl.rcParams.update(
     }
 )
 plt.rc('font', family='serif', serif='Times', size=13)
+
 
 # Remove outliers
 def is_outlier(s):
@@ -39,6 +43,7 @@ y1, y2 = pts[xsi[0]], pts[xsi[1]]
 print y1, y2
 gradpw = (y2-y1)/(x2-x1)
 print gradpw
+
 
 # Plot
 #title='RESET WL Voltage Sweep', 

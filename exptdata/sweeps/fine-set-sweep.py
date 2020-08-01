@@ -19,6 +19,7 @@ mpl.rcParams.update(
 )
 plt.rc('font', family='serif', serif='Times', size=13)
 
+
 # Remove outliers
 def is_outlier(s):
     lower_limit = s.mean() - (s.std() * 3)

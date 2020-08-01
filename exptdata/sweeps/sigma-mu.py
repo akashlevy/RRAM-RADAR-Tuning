@@ -1,10 +1,12 @@
 import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 
+
 # Load data and filter
 data = pd.read_csv('data/set-sweep-wl-deeper-7-3-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf'])
 data = data[data['wlv'] >= 2.44]
 data = data[data['wlv'] <= 3]
+
 
 # LaTEX quality figures 
 mpl.rcParams.update(
@@ -15,6 +17,7 @@ mpl.rcParams.update(
     }
 )
 plt.rc('font', family='serif', serif='Times', size=13)
+
 
 # Remove outliers
 def is_outlier(s):
@@ -38,7 +41,8 @@ print np.exp(fit)
 x = np.linspace(4e3, 1e3)
 y = np.exp(fit[1] + fit[0]*x)
 
-# Stdev vs median
+
+# Plot stdev vs median
 plt.figure(figsize=(4, 3))
 plt.title('Final Resistance $\\sigma$ vs. mean')
 plt.xlabel('Mean Resistance ($\\Omega$)')
