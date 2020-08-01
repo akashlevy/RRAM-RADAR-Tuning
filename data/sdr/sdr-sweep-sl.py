@@ -11,11 +11,14 @@ maxpulses = 50000
 # Load data
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.02, 0.221, 0.04)
-starts = np.arange(0.0, 1.01, 0.2)
+#steps = np.arange(0.02, 0.221, 0.04)
+#starts = np.arange(0.0, 1.01, 0.2)
+steps = np.arange(0.02, 0.301, 0.04)
+starts = np.arange(0.0, 1.21, 0.4)
 for step in steps:
     for start in starts:
-        fname = 'data/sl-opt-1/sdr-wl0.070-bl0.04-0.40-sl%.2f-%.2f-7-24-20.csv' % (step,start)
+        #fname = 'data/sl-opt-1/sdr-wl0.070-bl0.04-0.40-sl%.2f-%.2f-7-24-20.csv' % (step,start)
+        fname = 'data/sl-opt-2/sdr-wl0.070-bl3.00-2.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
@@ -27,8 +30,8 @@ for step in steps:
         datas.append(data)
 data = pd.concat(datas)
 
-#ignore = [800, 809, 847, 850, 854, 900, 909, 915, 937, 939, 955, 988, 993, 1007, 1014, 1021, 1029]
-ignore = [8613, 8614, 8616, 8627, 8628, 8644, 8650, 8651, 8659, 8660, 8678, 8686, 8695, 8713, 8715, 8739, 8746, 8751, 8767, 8778, 8780, 8791, 8817, 8818, 8833, 8846, 8848]
+#ignore = [8613, 8614, 8616, 8627, 8628, 8644, 8650, 8651, 8659, 8660, 8678, 8686, 8695, 8713, 8715, 8739, 8746, 8751, 8767, 8778, 8780, 8791, 8817, 8818, 8833, 8846, 8848]
+ignore = [9248, 9292]
 data = data[~data['addr'].isin(ignore)]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
@@ -53,10 +56,10 @@ for l in range(7):
     ax = Axes3D(fig)
     plt.locator_params(axis='x', nbins=6)
     plt.locator_params(axis='y', nbins=6)
-    ax.set_title('VSL Step Size Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_title('VSL Start/Step Optimization (Range %d)' % (l), fontsize=20)
     ax.set_xlabel('SL Step Size (V)', fontsize=15)
     ax.set_ylabel('SL Start Voltage (V)', fontsize=15)
-    ax.set_zlabel('\# RESET Pulses Required', fontsize=15)
+    ax.set_zlabel('\# Pulses Required', fontsize=15)
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['npulses'].mean()
     grid = np.meshgrid(steps, starts)
     print d.unstack()
@@ -66,7 +69,7 @@ for l in range(7):
 
     fig = plt.figure()
     ax = Axes3D(fig)
-    ax.set_title('VSL Step Size Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_title('VSL Start/Step Optimization (Range %d)' % (l), fontsize=20)
     ax.set_xlabel('SL Step Size (V)', fontsize=15)
     ax.set_ylabel('SL Start Voltage (V)', fontsize=15)
     ax.set_zlabel('Success Rate', fontsize=15)

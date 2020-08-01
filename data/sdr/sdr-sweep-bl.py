@@ -56,7 +56,7 @@ for l in range(7):
     ax = Axes3D(fig)
     plt.locator_params(axis='x', nbins=6)
     plt.locator_params(axis='y', nbins=6)
-    ax.set_title('VBL Step Size Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_title('VBL Start/Step Optimization (Range %d)' % (l), fontsize=20)
     ax.set_xlabel('BL Step Size (V)', fontsize=15)
     ax.set_ylabel('BL Start Voltage (V)', fontsize=15)
     ax.set_zlabel('\# Pulses Required', fontsize=15)
@@ -69,7 +69,7 @@ for l in range(7):
 
     fig = plt.figure()
     ax = Axes3D(fig)
-    ax.set_title('VBL Step Size Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_title('VBL Start/Step Optimization (Range %d)' % (l), fontsize=20)
     ax.set_xlabel('BL Step Size (V)', fontsize=15)
     ax.set_ylabel('BL Start Voltage (V)', fontsize=15)
     ax.set_zlabel('Success Rate', fontsize=15)

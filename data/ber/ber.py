@@ -26,7 +26,7 @@ plt.tight_layout()
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 if chipnum == 1:
     #fnames = ['../ispp/data/ispp-4wl-eval-chip1-6-6-20.csv', '../fppv/data/fppv-4wl-eval-chip1-6-6-20.csv', '../fppv/data/fppv-4wl-eval-chip1-6-6-20.csv', '../sdr/data/infopt/sdr-infopt-4wl-eval-chip1-6-8-20.csv']
-    fnames = ['../ispp/data/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-wl0.070-bl5.80-sl0.30-0.30-7-19-20.csv', '../sdr/data/bl-opt/sdr-wl0.070-bl0.10-0.00-sl0.14-2.00-7-24-20.csv']
+    fnames = ['../ispp/data/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-4wl-eval-chip1-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-7-30-20.csv']
 if chipnum == 2:
     fnames = ['../ispp/data/ispp-4wl-eval-chip2-6-17-20.csv', '../fppv/data/fppv-4wl-eval-chip2-6-17-20.csv', '../fppv/data/fppv-4wl-eval-chip2-6-17-20.csv', '../sdr/data/infopt/sdr-infopt-4wl-eval-chip2-6-17-20.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-1k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-6k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-11k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-20k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20.csv', '../ispp/data/ispp-wl0.06-bl0.80-sl0.30-7.00-6-22-20.csv']
 for i, fname in enumerate(fnames):
@@ -54,12 +54,12 @@ for i, fname in enumerate(fnames):
     print pulses[argerr], bers[argerr]
     print pulses[argerr-1], bers[argerr-1]
     if i != 1:
-        plt.annotate('%.2f' % pulses[argerr-1], xy=(pulses[argerr-1], bers[argerr-1]), xytext=(pulses[argerr-1]-20, 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
+        plt.annotate('%.2f' % pulses[argerr-1], xy=(pulses[argerr-1], bers[argerr-1]), xytext=(pulses[argerr-1]-10, 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 
 # Plot BER
-plt.semilogy([0, 150], [1, 1], ':')
+plt.semilogy([0, 100], [1, 1], ':')
 plt.legend(['ISPP', 'FPPV', 'SDCFC'], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 10})
-plt.xlim(0, 150)
+plt.xlim(0, 100)
 plt.ylim(0.5, 100)
 ax.xaxis.set_major_formatter(FormatStrFormatter('%d'))
 ax.yaxis.set_major_formatter(FormatStrFormatter('%d'))

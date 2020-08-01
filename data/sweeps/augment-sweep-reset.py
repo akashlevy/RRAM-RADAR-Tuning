@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 # Load data
 names = ['addr', 'pw', 'slv', 'wlv', 'ri', 'rf']
-stepsize = 0.01
-fname = 'data/reset-sweep-wl-200ns-7-18-20'
+stepsize = 0.05
+fname = 'data/reset-sweep-wl-200ns-step-0.05-7-30-20'
 data = pd.read_csv(fname + '.csv', delimiter='\t', names=names)
 for i, row in data.iterrows():
     if i != 0 and row['wlv'] == 2:

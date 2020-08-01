@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 # Load data
 names = ['addr', 'pw', 'slv', 'wlv', 'ri', 'rf']
-stepsize = 0.01
-data = pd.read_csv('data/reset-sweep-sl-200ns-7-18-20.csv', delimiter='\t', names=names)
+stepsize = 0.05
+data = pd.read_csv('data/reset-sweep-sl-200ns-step-0.05-7-30-20.csv', delimiter='\t', names=names)
 
 
 # LaTEX quality figures 
@@ -39,7 +39,7 @@ stds = rf.std()/1000.
 # Derivative and smoothing
 pts = means.values
 print pts
-x1, x2 = (1.43, 1.47)
+x1, x2 = (1.55, 1.6)
 xsi = (int(round((x1-0)/stepsize)), int(round((x2-0)/stepsize)))
 print xsi
 y1, y2 = pts[xsi[0]], pts[xsi[1]]
@@ -48,10 +48,10 @@ gradpw = (y2-y1)/(x2-x1)
 print gradpw
 
 # Plot
-#title='RESET SL Voltage Sweep', l
-ax = means.plot(logy=False, xlim=(1.3, 1.6), ylim=(0, 15), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
+#title='RESET SL Voltage Sweep', 
+ax = means.plot(logy=False, xlim=(1.2, 1.7), ylim=(0, 15), linewidth=2, figsize=(4,3)) #, yerr=stds.unstack(), elinewidth=0.5)
 plt.plot([2*x1-x2, 2*x2-x1], [y1-gradpw*(x2-x1), y2+gradpw*(x2-x1)], 'r:', linewidth=2)
-plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(1.53, y2-4), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
+plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(1.35, y1), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 plt.xlabel('SL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
 leg = plt.legend([''], columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})

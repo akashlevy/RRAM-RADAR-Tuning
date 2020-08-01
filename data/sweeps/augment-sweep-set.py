@@ -4,14 +4,14 @@ import matplotlib.pyplot as plt
 
 # Load data
 names = ['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']
-stepsize = 0.01
-fname = 'data/set-sweep-bl-200ns-perlev-7-23-20'
+stepsize = 0.05
+fname = 'data/set-sweep-wl-noreset-200ns-step-0.05-7-30-20'
 data = pd.read_csv(fname + '.csv', delimiter='\t', names=names)
 for i, row in data.iterrows():
-    if i != 0 and row['blv'] == 0:
+    if i != 0 and row['wlv'] == 1:
         row = data.iloc[i-1].copy()
-        while row['blv'] < 4:
-            row['blv'] = row['blv'] + stepsize
+        while row['wlv'] < 4:
+            row['wlv'] = row['wlv'] + stepsize
             #print row
             data = data.append(row, ignore_index=True)
             #print data.iloc[-1]
