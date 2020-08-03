@@ -16,19 +16,18 @@ mpl.rcParams.update(
 plt.rc('font', family='serif', serif='Times', size=13)
 
 # Setup figure
-fig, ax = plt.subplots(figsize=(4,3))
+plt.figure(figsize=(3.5,3))
 plt.title('Pulses Required for Target Error')
 plt.xlabel('Mean Pulses Required')
 plt.ylabel('Error (\%)')
-plt.tight_layout()
+colors = iter(plt.rcParams['axes.prop_cycle'].by_key()['color'][:3]*2)
+styles = iter(['-']*3 + ['--']*3)
+labels = iter(['ISPP', 'FPPV', 'SDCFC']*2)
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 if chipnum == 1:
-    #fnames = ['../ispp/data/ispp-4wl-eval-chip1-6-6-20.csv', '../fppv/data/fppv-4wl-eval-chip1-6-6-20.csv', '../fppv/data/fppv-4wl-eval-chip1-6-6-20.csv', '../sdr/data/infopt/sdr-infopt-4wl-eval-chip1-6-8-20.csv']
-    fnames = ['../ispp/data/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-4wl-eval-chip1-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-7-30-20.csv']
-if chipnum == 2:
-    fnames = ['../ispp/data/ispp-4wl-eval-chip2-6-17-20.csv', '../fppv/data/fppv-4wl-eval-chip2-6-17-20.csv', '../fppv/data/fppv-4wl-eval-chip2-6-17-20.csv', '../sdr/data/infopt/sdr-infopt-4wl-eval-chip2-6-17-20.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-1k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-6k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-11k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20-20k.csv', '../sdr/data/infopt/sdr-wl0.06-bl0.80-sl0.30-7.00-6-22-20.csv', '../ispp/data/ispp-wl0.06-bl0.80-sl0.30-7.00-6-22-20.csv']
+    fnames = ['../ispp/data/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-4wl-eval-chip1-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-7-30-20.csv', '../ispp/data/ispp-wl0.070-bl5.00-5.00-sl5.00-5.00-7-24-20.csv', '../ispp/data/ispp-wl0.070-bl5.00-5.00-sl6.00-5.00-7-24-20.csv', '../sdr/data/sdr-wl0.070-bl5.00-5.00-sl5.00-5.00-7-24-20.csv']
 for i, fname in enumerate(fnames):
     # Load and process/filter data
     data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
@@ -40,28 +39,34 @@ for i, fname in enumerate(fnames):
     # Sweep maxpulses
     pulses = []
     bers = []
-    for maxpulses in range(5000, 0, -1):
+    for maxpulses in sorted(data['npulses'].unique(), reverse=True):
         data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
         data['npulses'] = data['npulses'].clip(upper=maxpulses)
         pulses.append(data['npulses'].mean())
         bers.append(1-data['success'].mean())
     bers = np.array(bers)*100
-    plt.semilogy(pulses, bers)
+    plt.semilogy(pulses, bers, color=next(colors), linestyle=next(styles), label=next(labels))
 
     # Create labels
     argerr = np.argmin(np.abs(bers - 1))
     print fname
     print pulses[argerr], bers[argerr]
     print pulses[argerr-1], bers[argerr-1]
-    if i != 1:
-        plt.annotate('%.2f' % pulses[argerr-1], xy=(pulses[argerr-1], bers[argerr-1]), xytext=(pulses[argerr-1]-10, 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
+    if i not in [1,3,4]:
+        plt.annotate('%.2f' % pulses[argerr-1], xy=(pulses[argerr-1], 1), xytext=(pulses[argerr-1]+(10 if i==2 else -10), 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 
 # Plot BER
-plt.semilogy([0, 100], [1, 1], ':')
-plt.legend(['ISPP', 'FPPV', 'SDCFC'], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 10})
-plt.xlim(0, 100)
+plt.semilogy([0, 90], [1, 1], ':', color='black')
+plt.xlim(0, 90)
+plt.xticks(list(plt.xticks()[0]) + [90])
+plt.xlim(0, 90)
 plt.ylim(0.5, 100)
-ax.xaxis.set_major_formatter(FormatStrFormatter('%d'))
-ax.yaxis.set_major_formatter(FormatStrFormatter('%d'))
+plt.gca().xaxis.set_major_formatter(FormatStrFormatter('%d'))
+plt.gca().yaxis.set_major_formatter(FormatStrFormatter('%d'))
+handles, labels = plt.gca().get_legend_handles_labels()
+leg1 = plt.legend(handles[:3], labels[:3], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 10}, loc='upper left', bbox_to_anchor=(1.02, 1), title='Before cycling')
+plt.gca().add_artist(leg1)
+leg2 = plt.legend(handles[3:6], labels[3:6], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 10}, loc='lower left', bbox_to_anchor=(1.02, 0), title='After 8k cycles')
 plt.tight_layout()
-plt.show()
+plt.savefig('figs/ber.eps', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
+plt.savefig('figs/ber.png', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')

@@ -4,8 +4,8 @@
 # The digipatsrc files need to be compiled with compile-pats.cmd
 
 # Start/end address and pulse width
-addri = 31024
-addrf = 32048 # exclusive
+addri = 28200
+addrf = 28456 # exclusive
 pw = 200
 
 # Number of cycles corresponding to pulse width
@@ -24,12 +24,12 @@ for i, (startaddr, endaddr) in enumerate(zip(range(addri, addrf, 512), range(add
     {'''
         for addr in range(startaddr, endaddr):
             string += '''
-    repeat({pwcount})							tset0       1       0       0       0       0       .d{addr};            // set addr and hold for 100ns
-    repeat({pwcount})							-			1		1		1		1		0		.d{addr};			 // pulse set 100ns
-    repeat{pwcount}							-           1       0       0       0       0       .d{addr};            // set addr and hold for 100ns'''.format(addr=addr)
+    repeat({pwcount})							tset0       1       0       0       0       0       .d{addr};            // set addr and hold for {pw}ns
+    repeat({pwcount})							-			1		1		1		1		0		.d{addr};			 // pulse set {pw}ns
+    repeat({pwcount})							-           1       0       0       0       0       .d{addr};            // set addr and hold for {pw}ns'''.format(addr=addr, pwcount=pwcount, pw=pw)
         string += '''
     halt								-			0		0		0		0		0		.d0;
-    }}\n'''.format(addr=addr, pwcount=pwcount)
+    }}\n'''.format(addr=addr)
         f.write(string)
 
     # RESET waveform
@@ -43,10 +43,10 @@ for i, (startaddr, endaddr) in enumerate(zip(range(addri, addrf, 512), range(add
     {'''
         for addr in range(startaddr, endaddr):
             string += '''
-    repeat{pwcount}							tset0       1       0       0       0       0       .d{addr};            // set addr and hold for 100ns
-    repeat{pwcount}							-   		1		1		1		0		1		.d{addr};			 // pulse reset 100ns
-    repeat{pwcount}							-           1       0       0       0       0       .d{addr};            // set addr and hold for 100ns'''.format(addr=addr)
+    repeat({pwcount})							tset0       1       0       0       0       0       .d{addr};            // set addr and hold for {pw}ns
+    repeat({pwcount})							-   		1		1		1		0		1		.d{addr};			 // pulse reset {pw}ns
+    repeat({pwcount})							-           1       0       0       0       0       .d{addr};            // set addr and hold for {pw}ns'''.format(addr=addr, pwcount=pwcount, pw=pw)
         string += '''
     halt								-			0		0		0		0		0		.d0;
-    }}\n'''.format(addr=addr, pwcount=pwcount)
+    }}\n'''.format(addr=addr)
         f.write(string)
