@@ -4,33 +4,33 @@ import matplotlib.pyplot as plt
 
 # Filter parameters
 maxpulses = 500
+bpc = 2
 
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-data = pd.read_csv('data/fppv-wl0.070-bl3.00-3.00-sl3.00-3.00-7-24-20.csv', delimiter='\t', names=names, index_col=False)
+data = pd.read_csv('data/2bpc/fppv-wl0.100-bl6.00-6.00-sl6.00-6.00-7-24-20.csv', delimiter='\t', names=names, index_col=False)
 data['npulses'] = data['nsets'] + data['nresets'] - 1
 rlos = data['rlo'].unique()
 data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
-data = data[data['bin'] != 7]
+data = data[data['bin'] != (2**bpc - 1)]
 
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
 data['npulses'] = data['npulses'].clip(upper=maxpulses)
 print data
 
-data = data[data['addr'] != 3650]
-data = data[data['addr'] != 3557]
-data = data[data['addr'] != 3561]
-data = data[data['addr'] != 3622]
-data = data[data['addr'] != 3637]
-data = data[data['addr'] != 3644]
-data = data[data['addr'] != 3421]
-data = data[data['addr'] != 3482]
-data = data[data['addr'] != 3489]
-data = data[data['addr'] != 3615]
-data = data[data['addr'] != 3603]
-
+# data = data[data['addr'] != 3650]
+# data = data[data['addr'] != 3557]
+# data = data[data['addr'] != 3561]
+# data = data[data['addr'] != 3622]
+# data = data[data['addr'] != 3637]
+# data = data[data['addr'] != 3644]
+# data = data[data['addr'] != 3421]
+# data = data[data['addr'] != 3482]
+# data = data[data['addr'] != 3489]
+# data = data[data['addr'] != 3615]
+# data = data[data['addr'] != 3603]
 
 
 # LaTEX quality figures 

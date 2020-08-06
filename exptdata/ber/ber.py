@@ -2,8 +2,9 @@ import matplotlib as mpl, numpy as np, pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
 
-# Chip number
+# Chip number and bpc
 chipnum = 1
+bpc = 2
 
 # LaTEX quality figures 
 mpl.rcParams.update(
@@ -27,14 +28,17 @@ labels = iter(['ISPP', 'FPPV', 'SDCFC']*2)
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 if chipnum == 1:
-    fnames = ['../ispp/data/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-4wl-eval-chip1-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-7-30-20.csv', '../ispp/data/ispp-wl0.070-bl5.00-5.00-sl5.00-5.00-7-24-20.csv', '../ispp/data/ispp-wl0.070-bl5.00-5.00-sl6.00-5.00-7-24-20.csv', '../sdr/data/sdr-wl0.070-bl5.00-5.00-sl5.00-5.00-7-24-20.csv']
+    if bpc == 2:
+        fnames = ['../ispp/data/2bpc/ispp-4wl-eval-chip1-8-5-20.csv','../fppv/data/2bpc/fppv-wl0.100-bl6.00-6.00-sl6.00-6.00-7-24-20.csv']*3
+    if bpc == 3:
+        fnames = ['../ispp/data/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-4wl-eval-chip1-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-7-30-20.csv', '../ispp/data/ispp-4wl-eval-chip1-8k-7-31-20.csv', '../fppv/data/fppv-4wl-eval-chip1-8k-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-8k-7-31-20.csv']
 for i, fname in enumerate(fnames):
     # Load and process/filter data
     data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets'] - 1
     rlos = data['rlo'].unique()
     data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
-    data = data[data['bin'] != 7]
+    data = data[data['bin'] != (2**bpc - 1)]
 
     # Sweep maxpulses
     pulses = []
@@ -57,9 +61,12 @@ for i, fname in enumerate(fnames):
 
 # Plot BER
 plt.semilogy([0, 90], [1, 1], ':', color='black')
-plt.xlim(0, 90)
-plt.xticks(list(plt.xticks()[0]) + [90])
-plt.xlim(0, 90)
+if bpc == 2:
+    plt.xlim(0, 40)
+if bpc == 3:
+    plt.xlim(0, 90)
+    plt.xticks(list(plt.xticks()[0]) + [90])
+    plt.xlim(0, 90)
 plt.ylim(0.5, 100)
 plt.gca().xaxis.set_major_formatter(FormatStrFormatter('%d'))
 plt.gca().yaxis.set_major_formatter(FormatStrFormatter('%d'))
