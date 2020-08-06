@@ -9,19 +9,20 @@ maxpulses = 50000
 
 
 # Load data
+bpc = 2
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 #steps = np.arange(0.02, 0.221, 0.04)
 #starts = np.arange(0.0, 1.01, 0.2)
 #steps = np.arange(0.02, 0.301, 0.04)
 #starts = np.arange(0.0, 1.21, 0.4)
-steps = np.arange(0.02, 0.261, 0.04)
-starts = np.arange(0, 0.21, 0.2)
+steps = np.arange(0.02, 0.31, 0.04)
+starts = np.arange(0, 1.01, 0.2)
 for step in steps:
     for start in starts:
         #fname = 'data/3bpc/sl-opt-1/sdr-wl0.070-bl0.04-0.40-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         #fname = 'data/3bpc/sl-opt-2/sdr-wl0.070-bl3.00-2.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
-        fname = 'data/2bpc/sl-opt-1/sdr-wl0.100-bl0.04-0.40-sl%.2f-%.2f-7-24-20.csv' % (step,start)
+        fname = 'data/2bpc/sl-opt-1/sdr-wl0.100-bl0.04-2.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         #fname = 'data/2bpc/sl-opt-2/sdr-wl0.100-bl3.00-2.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
@@ -30,13 +31,13 @@ for step in steps:
         data['start'] = start
         rlos = data['rlo'].unique()
         data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
-        data = data[data['bin'] != 7]
+        data = data[data['bin'] != (2**bpc - 1)]
         datas.append(data)
 data = pd.concat(datas)
 
 #ignore = [8613, 8614, 8616, 8627, 8628, 8644, 8650, 8651, 8659, 8660, 8678, 8686, 8695, 8713, 8715, 8739, 8746, 8751, 8767, 8778, 8780, 8791, 8817, 8818, 8833, 8846, 8848]
 #ignore = [9248, 9292]
-ignore = []
+ignore = [38207, 38224, 38275, 38294, 38305, 38334, 38343, 38397, 38404, 38413, 38419, 38444, 38449]
 data = data[~data['addr'].isin(ignore)]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
