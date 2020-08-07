@@ -9,13 +9,14 @@ maxpulses = 50000
 
 
 # Load data
+bpc = 2
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.02, 0.301, 0.04)
+steps = np.arange(0.02, 0.221, 0.04)
 starts = np.arange(0, 1.21, 0.4)
 for step in steps:
     for start in starts:
-        fname = 'data/bl-opt/sdr-wl0.070-bl%.2f-%.2f-sl0.14-2.00-7-24-20.csv' % (step,start)
+        fname = 'data/2bpc/bl-opt/sdr-wl0.100-bl%.2f-%.2f-sl5.00-5.00-7-24-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
@@ -23,7 +24,7 @@ for step in steps:
         data['start'] = start
         rlos = data['rlo'].unique()
         data['bin'] = data['rlo'].apply(lambda x: np.where(rlos == x)[0][0])
-        data = data[data['bin'] != 7]
+        data = data[data['bin'] != (2**bpc - 1)]
         datas.append(data)
 data = pd.concat(datas)
 
@@ -51,7 +52,7 @@ plt.rc('font', family='serif', serif='Times', size=13)
 
 
 # Per-level optimization
-for l in range(7):
+for l in range(2**bpc - 1):
     fig = plt.figure()
     ax = Axes3D(fig)
     plt.locator_params(axis='x', nbins=6)

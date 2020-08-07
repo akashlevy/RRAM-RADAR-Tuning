@@ -16,14 +16,17 @@ names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'succes
 #starts = np.arange(0.0, 1.01, 0.2)
 #steps = np.arange(0.02, 0.301, 0.04)
 #starts = np.arange(0.0, 1.21, 0.4)
-steps = np.arange(0.02, 0.31, 0.04)
-starts = np.arange(0, 1.01, 0.2)
+#steps = np.arange(0.1, 0.401, 0.05)
+#starts = np.arange(0, 1.21, 0.4)
+steps = np.arange(0.02, 0.101, 0.02)
+starts = np.arange(0, 0.151, 0.05)
 for step in steps:
     for start in starts:
         #fname = 'data/3bpc/sl-opt-1/sdr-wl0.070-bl0.04-0.40-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         #fname = 'data/3bpc/sl-opt-2/sdr-wl0.070-bl3.00-2.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
-        fname = 'data/2bpc/sl-opt-1/sdr-wl0.100-bl0.04-2.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
-        #fname = 'data/2bpc/sl-opt-2/sdr-wl0.100-bl3.00-2.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
+        #fname = 'data/2bpc/sl-opt-1/sdr-wl0.100-bl0.10-0.40-sl%.2f-%.2f-7-24-20.csv' % (step,start)
+        fname = 'data/2bpc/sl-opt-2/sdr-wl0.100-bl5.00-5.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
+        fname = 'data/2bpc/sl-opt-1-2/sdr-wl0.100-bl5.00-5.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
