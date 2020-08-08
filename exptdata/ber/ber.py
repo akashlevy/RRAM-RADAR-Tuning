@@ -29,7 +29,7 @@ labels = iter(['ISPP', 'FPPV', 'SDCFC']*2)
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 if chipnum == 1:
     if bpc == 2:
-        fnames = ['../ispp/data/2bpc/ispp-4wl-eval-chip1-8-5-20.csv','../fppv/data/2bpc/fppv-4wl-eval-chip1-8-7-20.csv', '../sdr/data/2bpc/sdr-wl0.100-bl5.00-5.00-sl5.00-5.00-7-24-20.csv']*2
+        fnames = ['../ispp/data/2bpc/ispp-4wl-eval-chip1-8-5-20.csv','../fppv/data/2bpc/fppv-4wl-eval-chip1-8-7-20.csv']*3
     if bpc == 3:
         fnames = ['../ispp/data/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-4wl-eval-chip1-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-7-30-20.csv', '../ispp/data/ispp-4wl-eval-chip1-8k-7-31-20.csv', '../fppv/data/fppv-4wl-eval-chip1-8k-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-8k-7-31-20.csv']
 for i, fname in enumerate(fnames):
@@ -56,13 +56,15 @@ for i, fname in enumerate(fnames):
     print fname
     print pulses[argerr], bers[argerr]
     print pulses[argerr-1], bers[argerr-1]
-    if i not in [1,3,4]:
+    if bpc == 3 and i not in [1,3,4]:
         plt.annotate('%.2f' % pulses[argerr-1], xy=(pulses[argerr-1], 1), xytext=(pulses[argerr-1]+(10 if i==2 else -10), 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
+    if bpc == 2:
+        plt.annotate('%.2f' % pulses[argerr-1], xy=(pulses[argerr-1], 1), xytext=(pulses[argerr-1]-3, 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 
 # Plot BER
 plt.semilogy([0, 90], [1, 1], ':', color='black')
 if bpc == 2:
-    plt.xlim(0, 40)
+    plt.xlim(0, 25)
 if bpc == 3:
     plt.xlim(0, 90)
     plt.xticks(list(plt.xticks()[0]) + [90])

@@ -5,15 +5,15 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 # Filter parameters
-maxpulses = 50000
+maxpulses = 100
 
 
 # Load data
 bpc = 2
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.02, 0.221, 0.04)
-starts = np.arange(0, 1.21, 0.4)
+steps = np.arange(0.02, 0.421, 0.08)
+starts = np.arange(0, 1.01, 0.2)
 for step in steps:
     for start in starts:
         fname = 'data/2bpc/bl-opt/sdr-wl0.100-bl%.2f-%.2f-sl5.00-5.00-7-24-20.csv' % (step,start)
@@ -30,7 +30,7 @@ data = pd.concat(datas)
 
 
 # Ignore bad cells
-ignore = []
+ignore = [39705, 39722, 39750, 39751,  39781, 39785, 39808, 39810, 39883, 39911]
 data = data[~data['addr'].isin(ignore)]
 
 

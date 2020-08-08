@@ -18,7 +18,7 @@ names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'succes
 #starts = np.arange(0.0, 1.21, 0.4)
 #steps = np.arange(0.1, 0.401, 0.05)
 #starts = np.arange(0, 1.21, 0.4)
-steps = np.arange(0.02, 0.101, 0.02)
+steps = np.arange(0.02, 0.201, 0.02)
 starts = np.arange(0, 0.151, 0.05)
 for step in steps:
     for start in starts:
@@ -26,7 +26,7 @@ for step in steps:
         #fname = 'data/3bpc/sl-opt-2/sdr-wl0.070-bl3.00-2.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         #fname = 'data/2bpc/sl-opt-1/sdr-wl0.100-bl0.10-0.40-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         fname = 'data/2bpc/sl-opt-2/sdr-wl0.100-bl5.00-5.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
-        fname = 'data/2bpc/sl-opt-1-2/sdr-wl0.100-bl5.00-5.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
+        fname = 'data/2bpc/sl-opt-1/sdr-wl0.100-bl5.00-5.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
@@ -40,7 +40,7 @@ data = pd.concat(datas)
 
 #ignore = [8613, 8614, 8616, 8627, 8628, 8644, 8650, 8651, 8659, 8660, 8678, 8686, 8695, 8713, 8715, 8739, 8746, 8751, 8767, 8778, 8780, 8791, 8817, 8818, 8833, 8846, 8848]
 #ignore = [9248, 9292]
-ignore = [38207, 38224, 38275, 38294, 38305, 38334, 38343, 38397, 38404, 38413, 38419, 38444, 38449]
+ignore = [39705, 39722, 39750, 39751,  39781, 39785, 39808, 39810, 39883, 39911]
 data = data[~data['addr'].isin(ignore)]
 
 data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
