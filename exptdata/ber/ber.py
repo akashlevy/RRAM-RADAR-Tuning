@@ -29,7 +29,7 @@ labels = iter(['ISPP', 'FPPV', 'SDCFC']*2)
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
 if chipnum == 1:
     if bpc == 2:
-        fnames = ['../ispp/data/2bpc/ispp-4wl-eval-chip1-8-5-20.csv','../fppv/data/2bpc/fppv-4wl-eval-chip1-8-7-20.csv']*3
+        fnames = ['../ispp/data/2bpc/ispp-4wl-eval-chip1-8-5-20.csv','../fppv/data/2bpc/fppv-4wl-eval-chip1-8-7-20.csv','../sdr/data/2bpc/sdr-wl0.100-bl6.00-6.00-sl6.00-6.00-7-24-20.csv']*2
     if bpc == 3:
         fnames = ['../ispp/data/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-4wl-eval-chip1-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-7-30-20.csv', '../ispp/data/ispp-4wl-eval-chip1-8k-7-31-20.csv', '../fppv/data/fppv-4wl-eval-chip1-8k-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-8k-7-31-20.csv']
 for i, fname in enumerate(fnames):
