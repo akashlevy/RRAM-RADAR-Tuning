@@ -4,8 +4,8 @@
 # The digipatsrc files need to be compiled with compile-pats.cmd
 
 # Start/end address and pulse width
-addri = 28200
-addrf = 28456 # exclusive
+addri = 40000
+addrf = 48192 # exclusive
 pw = 200
 
 # Number of cycles corresponding to pulse width

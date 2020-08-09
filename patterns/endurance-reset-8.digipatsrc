@@ -1,0 +1,1544 @@
+
+    file_format_version 1.1;
+    timeset tset0;
+
+    pattern endurance_reset (WL_SEL, BL_EN, WL_EN, BL_SEL_0, SL_SEL, addr:u)
+    {
+    repeat(10)							tset0       1       0       0       0       0       .d44096;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44096;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44096;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44097;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44097;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44097;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44098;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44098;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44098;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44099;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44099;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44099;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44100;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44100;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44100;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44101;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44101;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44101;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44102;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44102;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44102;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44103;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44103;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44103;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44104;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44104;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44104;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44105;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44105;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44105;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44106;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44106;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44106;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44107;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44107;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44107;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44108;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44108;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44108;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44109;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44109;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44109;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44110;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44110;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44110;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44111;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44111;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44111;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44112;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44112;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44112;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44113;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44113;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44113;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44114;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44114;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44114;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44115;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44115;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44115;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44116;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44116;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44116;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44117;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44117;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44117;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44118;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44118;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44118;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44119;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44119;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44119;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44120;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44120;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44120;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44121;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44121;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44121;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44122;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44122;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44122;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44123;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44123;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44123;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44124;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44124;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44124;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44125;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44125;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44125;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44126;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44126;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44126;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44127;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44127;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44127;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44128;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44128;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44128;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44129;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44129;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44129;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44130;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44130;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44130;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44131;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44131;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44131;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44132;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44132;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44132;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44133;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44133;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44133;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44134;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44134;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44134;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44135;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44135;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44135;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44136;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44136;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44136;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44137;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44137;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44137;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44138;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44138;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44138;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44139;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44139;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44139;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44140;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44140;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44140;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44141;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44141;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44141;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44142;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44142;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44142;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44143;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44143;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44143;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44144;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44144;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44144;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44145;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44145;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44145;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44146;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44146;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44146;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44147;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44147;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44147;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44148;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44148;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44148;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44149;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44149;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44149;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44150;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44150;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44150;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44151;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44151;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44151;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44152;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44152;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44152;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44153;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44153;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44153;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44154;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44154;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44154;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44155;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44155;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44155;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44156;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44156;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44156;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44157;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44157;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44157;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44158;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44158;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44158;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44159;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44159;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44159;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44160;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44160;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44160;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44161;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44161;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44161;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44162;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44162;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44162;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44163;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44163;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44163;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44164;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44164;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44164;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44165;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44165;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44165;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44166;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44166;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44166;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44167;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44167;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44167;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44168;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44168;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44168;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44169;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44169;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44169;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44170;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44170;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44170;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44171;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44171;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44171;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44172;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44172;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44172;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44173;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44173;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44173;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44174;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44174;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44174;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44175;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44175;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44175;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44176;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44176;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44176;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44177;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44177;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44177;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44178;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44178;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44178;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44179;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44179;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44179;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44180;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44180;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44180;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44181;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44181;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44181;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44182;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44182;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44182;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44183;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44183;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44183;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44184;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44184;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44184;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44185;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44185;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44185;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44186;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44186;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44186;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44187;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44187;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44187;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44188;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44188;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44188;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44189;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44189;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44189;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44190;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44190;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44190;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44191;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44191;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44191;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44192;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44192;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44192;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44193;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44193;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44193;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44194;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44194;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44194;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44195;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44195;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44195;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44196;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44196;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44196;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44197;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44197;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44197;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44198;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44198;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44198;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44199;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44199;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44199;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44200;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44200;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44200;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44201;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44201;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44201;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44202;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44202;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44202;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44203;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44203;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44203;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44204;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44204;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44204;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44205;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44205;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44205;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44206;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44206;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44206;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44207;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44207;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44207;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44208;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44208;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44208;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44209;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44209;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44209;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44210;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44210;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44210;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44211;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44211;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44211;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44212;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44212;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44212;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44213;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44213;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44213;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44214;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44214;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44214;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44215;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44215;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44215;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44216;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44216;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44216;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44217;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44217;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44217;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44218;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44218;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44218;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44219;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44219;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44219;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44220;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44220;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44220;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44221;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44221;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44221;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44222;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44222;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44222;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44223;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44223;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44223;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44224;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44224;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44224;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44225;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44225;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44225;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44226;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44226;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44226;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44227;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44227;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44227;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44228;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44228;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44228;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44229;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44229;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44229;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44230;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44230;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44230;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44231;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44231;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44231;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44232;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44232;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44232;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44233;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44233;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44233;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44234;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44234;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44234;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44235;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44235;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44235;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44236;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44236;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44236;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44237;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44237;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44237;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44238;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44238;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44238;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44239;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44239;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44239;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44240;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44240;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44240;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44241;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44241;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44241;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44242;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44242;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44242;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44243;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44243;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44243;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44244;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44244;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44244;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44245;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44245;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44245;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44246;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44246;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44246;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44247;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44247;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44247;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44248;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44248;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44248;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44249;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44249;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44249;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44250;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44250;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44250;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44251;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44251;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44251;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44252;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44252;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44252;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44253;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44253;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44253;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44254;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44254;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44254;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44255;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44255;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44255;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44256;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44256;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44256;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44257;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44257;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44257;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44258;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44258;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44258;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44259;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44259;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44259;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44260;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44260;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44260;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44261;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44261;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44261;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44262;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44262;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44262;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44263;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44263;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44263;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44264;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44264;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44264;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44265;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44265;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44265;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44266;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44266;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44266;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44267;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44267;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44267;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44268;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44268;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44268;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44269;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44269;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44269;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44270;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44270;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44270;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44271;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44271;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44271;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44272;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44272;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44272;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44273;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44273;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44273;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44274;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44274;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44274;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44275;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44275;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44275;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44276;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44276;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44276;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44277;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44277;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44277;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44278;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44278;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44278;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44279;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44279;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44279;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44280;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44280;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44280;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44281;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44281;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44281;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44282;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44282;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44282;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44283;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44283;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44283;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44284;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44284;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44284;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44285;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44285;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44285;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44286;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44286;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44286;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44287;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44287;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44287;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44288;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44288;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44288;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44289;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44289;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44289;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44290;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44290;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44290;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44291;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44291;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44291;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44292;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44292;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44292;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44293;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44293;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44293;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44294;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44294;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44294;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44295;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44295;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44295;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44296;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44296;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44296;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44297;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44297;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44297;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44298;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44298;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44298;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44299;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44299;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44299;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44300;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44300;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44300;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44301;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44301;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44301;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44302;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44302;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44302;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44303;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44303;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44303;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44304;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44304;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44304;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44305;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44305;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44305;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44306;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44306;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44306;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44307;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44307;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44307;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44308;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44308;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44308;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44309;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44309;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44309;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44310;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44310;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44310;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44311;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44311;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44311;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44312;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44312;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44312;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44313;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44313;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44313;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44314;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44314;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44314;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44315;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44315;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44315;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44316;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44316;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44316;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44317;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44317;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44317;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44318;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44318;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44318;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44319;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44319;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44319;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44320;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44320;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44320;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44321;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44321;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44321;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44322;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44322;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44322;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44323;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44323;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44323;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44324;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44324;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44324;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44325;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44325;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44325;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44326;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44326;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44326;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44327;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44327;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44327;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44328;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44328;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44328;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44329;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44329;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44329;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44330;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44330;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44330;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44331;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44331;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44331;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44332;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44332;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44332;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44333;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44333;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44333;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44334;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44334;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44334;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44335;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44335;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44335;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44336;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44336;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44336;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44337;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44337;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44337;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44338;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44338;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44338;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44339;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44339;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44339;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44340;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44340;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44340;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44341;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44341;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44341;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44342;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44342;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44342;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44343;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44343;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44343;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44344;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44344;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44344;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44345;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44345;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44345;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44346;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44346;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44346;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44347;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44347;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44347;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44348;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44348;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44348;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44349;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44349;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44349;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44350;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44350;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44350;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44351;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44351;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44351;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44352;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44352;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44352;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44353;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44353;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44353;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44354;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44354;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44354;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44355;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44355;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44355;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44356;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44356;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44356;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44357;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44357;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44357;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44358;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44358;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44358;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44359;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44359;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44359;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44360;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44360;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44360;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44361;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44361;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44361;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44362;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44362;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44362;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44363;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44363;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44363;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44364;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44364;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44364;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44365;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44365;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44365;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44366;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44366;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44366;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44367;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44367;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44367;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44368;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44368;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44368;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44369;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44369;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44369;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44370;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44370;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44370;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44371;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44371;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44371;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44372;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44372;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44372;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44373;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44373;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44373;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44374;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44374;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44374;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44375;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44375;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44375;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44376;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44376;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44376;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44377;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44377;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44377;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44378;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44378;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44378;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44379;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44379;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44379;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44380;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44380;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44380;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44381;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44381;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44381;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44382;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44382;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44382;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44383;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44383;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44383;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44384;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44384;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44384;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44385;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44385;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44385;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44386;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44386;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44386;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44387;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44387;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44387;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44388;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44388;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44388;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44389;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44389;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44389;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44390;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44390;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44390;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44391;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44391;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44391;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44392;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44392;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44392;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44393;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44393;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44393;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44394;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44394;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44394;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44395;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44395;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44395;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44396;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44396;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44396;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44397;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44397;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44397;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44398;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44398;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44398;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44399;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44399;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44399;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44400;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44400;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44400;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44401;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44401;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44401;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44402;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44402;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44402;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44403;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44403;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44403;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44404;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44404;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44404;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44405;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44405;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44405;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44406;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44406;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44406;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44407;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44407;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44407;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44408;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44408;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44408;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44409;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44409;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44409;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44410;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44410;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44410;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44411;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44411;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44411;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44412;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44412;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44412;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44413;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44413;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44413;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44414;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44414;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44414;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44415;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44415;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44415;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44416;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44416;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44416;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44417;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44417;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44417;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44418;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44418;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44418;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44419;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44419;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44419;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44420;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44420;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44420;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44421;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44421;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44421;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44422;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44422;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44422;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44423;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44423;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44423;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44424;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44424;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44424;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44425;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44425;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44425;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44426;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44426;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44426;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44427;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44427;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44427;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44428;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44428;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44428;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44429;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44429;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44429;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44430;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44430;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44430;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44431;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44431;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44431;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44432;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44432;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44432;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44433;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44433;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44433;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44434;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44434;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44434;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44435;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44435;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44435;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44436;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44436;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44436;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44437;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44437;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44437;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44438;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44438;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44438;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44439;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44439;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44439;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44440;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44440;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44440;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44441;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44441;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44441;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44442;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44442;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44442;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44443;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44443;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44443;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44444;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44444;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44444;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44445;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44445;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44445;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44446;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44446;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44446;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44447;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44447;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44447;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44448;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44448;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44448;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44449;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44449;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44449;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44450;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44450;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44450;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44451;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44451;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44451;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44452;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44452;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44452;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44453;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44453;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44453;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44454;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44454;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44454;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44455;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44455;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44455;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44456;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44456;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44456;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44457;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44457;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44457;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44458;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44458;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44458;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44459;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44459;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44459;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44460;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44460;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44460;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44461;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44461;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44461;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44462;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44462;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44462;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44463;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44463;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44463;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44464;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44464;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44464;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44465;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44465;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44465;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44466;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44466;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44466;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44467;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44467;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44467;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44468;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44468;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44468;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44469;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44469;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44469;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44470;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44470;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44470;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44471;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44471;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44471;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44472;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44472;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44472;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44473;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44473;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44473;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44474;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44474;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44474;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44475;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44475;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44475;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44476;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44476;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44476;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44477;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44477;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44477;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44478;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44478;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44478;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44479;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44479;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44479;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44480;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44480;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44480;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44481;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44481;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44481;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44482;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44482;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44482;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44483;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44483;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44483;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44484;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44484;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44484;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44485;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44485;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44485;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44486;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44486;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44486;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44487;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44487;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44487;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44488;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44488;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44488;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44489;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44489;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44489;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44490;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44490;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44490;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44491;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44491;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44491;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44492;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44492;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44492;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44493;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44493;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44493;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44494;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44494;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44494;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44495;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44495;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44495;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44496;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44496;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44496;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44497;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44497;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44497;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44498;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44498;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44498;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44499;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44499;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44499;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44500;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44500;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44500;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44501;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44501;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44501;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44502;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44502;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44502;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44503;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44503;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44503;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44504;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44504;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44504;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44505;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44505;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44505;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44506;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44506;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44506;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44507;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44507;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44507;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44508;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44508;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44508;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44509;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44509;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44509;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44510;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44510;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44510;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44511;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44511;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44511;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44512;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44512;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44512;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44513;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44513;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44513;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44514;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44514;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44514;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44515;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44515;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44515;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44516;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44516;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44516;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44517;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44517;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44517;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44518;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44518;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44518;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44519;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44519;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44519;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44520;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44520;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44520;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44521;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44521;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44521;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44522;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44522;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44522;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44523;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44523;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44523;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44524;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44524;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44524;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44525;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44525;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44525;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44526;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44526;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44526;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44527;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44527;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44527;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44528;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44528;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44528;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44529;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44529;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44529;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44530;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44530;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44530;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44531;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44531;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44531;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44532;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44532;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44532;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44533;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44533;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44533;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44534;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44534;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44534;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44535;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44535;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44535;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44536;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44536;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44536;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44537;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44537;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44537;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44538;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44538;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44538;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44539;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44539;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44539;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44540;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44540;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44540;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44541;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44541;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44541;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44542;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44542;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44542;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44543;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44543;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44543;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44544;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44544;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44544;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44545;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44545;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44545;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44546;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44546;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44546;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44547;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44547;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44547;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44548;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44548;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44548;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44549;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44549;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44549;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44550;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44550;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44550;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44551;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44551;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44551;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44552;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44552;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44552;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44553;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44553;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44553;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44554;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44554;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44554;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44555;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44555;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44555;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44556;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44556;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44556;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44557;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44557;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44557;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44558;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44558;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44558;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44559;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44559;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44559;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44560;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44560;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44560;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44561;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44561;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44561;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44562;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44562;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44562;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44563;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44563;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44563;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44564;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44564;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44564;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44565;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44565;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44565;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44566;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44566;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44566;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44567;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44567;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44567;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44568;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44568;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44568;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44569;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44569;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44569;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44570;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44570;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44570;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44571;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44571;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44571;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44572;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44572;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44572;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44573;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44573;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44573;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44574;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44574;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44574;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44575;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44575;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44575;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44576;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44576;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44576;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44577;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44577;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44577;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44578;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44578;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44578;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44579;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44579;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44579;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44580;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44580;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44580;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44581;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44581;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44581;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44582;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44582;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44582;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44583;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44583;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44583;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44584;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44584;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44584;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44585;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44585;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44585;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44586;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44586;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44586;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44587;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44587;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44587;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44588;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44588;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44588;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44589;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44589;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44589;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44590;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44590;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44590;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44591;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44591;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44591;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44592;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44592;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44592;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44593;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44593;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44593;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44594;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44594;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44594;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44595;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44595;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44595;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44596;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44596;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44596;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44597;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44597;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44597;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44598;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44598;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44598;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44599;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44599;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44599;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44600;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44600;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44600;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44601;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44601;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44601;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44602;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44602;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44602;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44603;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44603;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44603;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44604;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44604;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44604;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44605;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44605;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44605;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44606;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44606;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44606;            // set addr and hold for 200ns
+    repeat(10)							tset0       1       0       0       0       0       .d44607;            // set addr and hold for 200ns
+    repeat(10)							-   		1		1		1		0		1		.d44607;			 // pulse reset 200ns
+    repeat(10)							-           1       0       0       0       0       .d44607;            // set addr and hold for 200ns
+    halt								-			0		0		0		0		0		.d0;
+    }
