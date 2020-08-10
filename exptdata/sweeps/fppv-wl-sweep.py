@@ -1,11 +1,11 @@
 import matplotlib as mpl, numpy as np, pandas as pd, pygmo as pg
 import matplotlib.pyplot as plt
 
-chipnum = 1
+chipnum = 2
 if chipnum == 1:
     data = pd.read_csv('data/set-sweep-wl-200pw-7-16-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']) # chip1
 if chipnum == 2:
-    data = pd.read_csv('data/set-sweep-wl-inner-chip2-6-15-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']) # chip2
+    data = pd.read_csv('data/set-sweep-wl-200ns-step-0.01-8-9-20.csv', delimiter='\t', names=['addr', 'pw', 'blv', 'wlv', 'ri', 'rf']) # chip2
 data = data[data['pw'] == 200]
 data = data[data['blv'] == 2]
 print data
@@ -41,7 +41,7 @@ pts = medians.values
 if chipnum == 1:
     vs = list(reversed([2.17, 2.27, 2.39, 2.52, 2.68, 2.86, 3])) # chip1
 if chipnum == 2:
-    vs = list(reversed([2.28, 2.33, 2.38, 2.44, 2.52, 2.55])) # chip2
+    vs = list(reversed([2.08, 2.14, 2.19, 2.23, 2.27, 2.3, 3])) # chip1
 vis = [int(round((v-1.5)/0.01)) for v in vs]
 rs = [pts[vi] for vi in vis]
 data = zip(range(7), vs, rs)
