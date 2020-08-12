@@ -4,7 +4,7 @@ from matplotlib.ticker import FormatStrFormatter
 
 # Chip number and bpc
 chipnum = 2
-bpc = 2
+bpc = 3
 
 # LaTEX quality figures 
 mpl.rcParams.update(
@@ -31,10 +31,12 @@ if chipnum == 1:
     if bpc == 2:
         fnames = ['../ispp/data/2bpc/ispp-4wl-eval-chip1-8-5-20.csv', '../fppv/data/2bpc/fppv-4wl-eval-chip1-8-7-20.csv', '../sdr/data/2bpc/sdr-4wl-eval-chip1-8-7-20.csv', '../ispp/data/2bpc/ispp-4wl-eval-chip1-8k-8-9-20.csv', '../fppv/data/2bpc/fppv-4wl-eval-chip1-8k-8-9-20.csv', '../sdr/data/2bpc/sdr-4wl-eval-chip1-8k-8-9-20.csv']
     if bpc == 3:
-        fnames = ['../ispp/data/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/fppv-4wl-eval-chip1-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-7-30-20.csv', '../ispp/data/ispp-4wl-eval-chip1-8k-7-31-20.csv', '../fppv/data/fppv-4wl-eval-chip1-8k-7-31-20.csv', '../sdr/data/sdr-4wl-eval-chip1-8k-7-31-20.csv']
+        fnames = ['../ispp/data/3bpc/ispp-4wl-eval-chip1-7-19-20.csv', '../fppv/data/3bpc/fppv-4wl-eval-chip1-7-31-20.csv', '../sdr/data/3bpc/sdr-4wl-eval-chip1-7-30-20.csv', '../ispp/data/3bpc/ispp-4wl-eval-chip1-8k-7-31-20.csv', '../fppv/data/3bpc/fppv-4wl-eval-chip1-8k-7-31-20.csv', '../sdr/data/3bpc/sdr-4wl-eval-chip1-8k-7-31-20.csv']
 if chipnum == 2:
     if bpc == 2:
-        fnames = ['../ispp/data/2bpc/ispp-4wl-eval-chip2-8-9-20.csv', '../fppv/data/2bpc/fppv-4wl-eval-chip2-8-9-20.csv', '../sdr/data/2bpc/sdr-4wl-eval-chip2-8-9-20.csv']*2
+        fnames = ['../ispp/data/2bpc/ispp-4wl-eval-chip2-8-9-20.csv', '../fppv/data/2bpc/fppv-4wl-eval-chip2-8-9-20.csv', '../sdr/data/2bpc/sdr-4wl-eval-chip2-8-9-20.csv', '../ispp/data/2bpc/ispp-4wl-eval-chip2-8k-8-9-20.csv', '../fppv/data/2bpc/fppv-4wl-eval-chip2-8k-8-9-20.csv', '../sdr/data/2bpc/sdr-4wl-eval-chip2-8k-8-9-20.csv']
+    if bpc == 3:
+        fnames = ['../ispp/data/3bpc/ispp-4wl-eval-chip2-8-9-20.csv', '../fppv/data/3bpc/fppv-4wl-eval-chip1-7-31-20.csv', '../sdr/data/3bpc/sdr-4wl-eval-chip2-8-9-20.csv', '../ispp/data/3bpc/ispp-4wl-eval-chip1-8k-7-31-20.csv', '../fppv/data/3bpc/fppv-4wl-eval-chip1-8k-7-31-20.csv', '../sdr/data/3bpc/sdr-4wl-eval-chip1-8k-7-31-20.csv']
 for i, fname in enumerate(fnames):
     # Load and process/filter data
     data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
@@ -71,7 +73,7 @@ if bpc == 2:
     plt.ylim(0.2, 100)
 if bpc == 3:
     plt.semilogy([0, 90], [1, 1], ':', color='black')
-    plt.ylim(0.5, 100)
+    plt.ylim(0.5, 90)
     plt.xlim(0, 90)
     plt.xticks(list(plt.xticks()[0]) + [90])
     plt.xlim(0, 90)
