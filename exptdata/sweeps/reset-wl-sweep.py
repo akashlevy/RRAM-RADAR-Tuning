@@ -46,14 +46,14 @@ print gradpw
 
 
 # Plot
-#title='RESET WL Voltage Sweep', 
-means.plot(logy=False, xlim=(2.8, 3.2), ylim=(0, 15), linewidth=2, figsize=(4,3))
-plt.plot([3*x1-2*x2, 3*x2-2*x1], [y1-2*gradpw*(x2-x1), y2+2*gradpw*(x2-x1)], 'r:', linewidth=2)
+means.plot(title='RESET WL Voltage Sweep', logy=False, xlim=(2.8, 3.2), ylim=(0, 15), linewidth=2, figsize=(4,3), yerr=stds/2, elinewidth=0.75, zorder=0)
 plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(2.9, 8), arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 plt.xlabel('WL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
 leg = plt.legend([''], columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 11})
 leg.set_title(title='VSL=2.8V, PW=200ns', prop={'size': 11})
+plt.plot([3*x1-2*x2, 3*x2-2*x1], [y1-2*gradpw*(x2-x1), y2+2*gradpw*(x2-x1)], 'r:', linewidth=2, zorder=10)
 plt.tight_layout()
 plt.savefig('figs/wl-reset.eps')
+plt.savefig('figs/wl-reset.pdf')
 plt.show()
