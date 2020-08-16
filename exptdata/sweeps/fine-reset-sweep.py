@@ -49,7 +49,8 @@ print gradpw
 
 
 # Plot
-ax = means.plot(title='RESET SL Voltage Sweep', logy=False, xlim=(1.2, 1.7), ylim=(0, 15), linewidth=2, figsize=(4,3), yerr=stds/2, elinewidth=0.75, zorder=0)
+#title='RESET SL Voltage Sweep', 
+ax = means.plot(logy=False, xlim=(1.2, 1.7), ylim=(0, 15), linewidth=2, figsize=(4,3), yerr=stds/2, elinewidth=0.75, zorder=0)
 plt.annotate('Slope: %.1f k$\\Omega$/V' % gradpw, xy=(x1, y1), xytext=(1.35, y1), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 plt.xlabel('SL Voltage (V)')
 plt.ylabel('Mean Resistance (k$\\Omega$)')
