@@ -98,8 +98,8 @@ for expt, bpc in product(range(1, 7+1), (3,)):
             rdata = data[data['bin'] == i]
             color = sns.color_palette()[i]
             sns.distplot(rdata['g'], kde=True, label='Range %d' % i, axlabel=False)
-            plt.axvline(Gmins[i], -0.1, 0.2, color=color)
-            plt.axvline(Gmaxs[i], -0.1, 0.2, color=color)
+            plt.axvline(Gmins[i], -0.1, 1, color=color, linestyle=':', linewidth=1)
+            plt.axvline(Gmaxs[i], -0.1, 1, color=color, linestyle=':', linewidth=1)
         plt.legend(borderpad=0.2, prop={'size': 10})
     plt.subplots_adjust(wspace=0, hspace=0)
     plt.tight_layout()
