@@ -5,18 +5,19 @@ from mpl_toolkits.mplot3d import Axes3D
 
 
 # Filter parameters
-maxpulses = 100
+#maxpulses = 100
+maxpulses = 50000
 
 
 # Load data
-bpc = 2
+bpc = 3
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-steps = np.arange(0.02, 0.421, 0.08)
-starts = np.arange(0, 1.01, 0.2)
+steps = np.arange(0.02, 0.301, 0.04)
+starts = np.arange(0, 1.21, 0.4)
 for step in steps:
     for start in starts:
-        fname = 'data/2bpc/bl-opt/sdr-wl0.100-bl%.2f-%.2f-sl5.00-5.00-7-24-20.csv' % (step,start)
+        fname = 'data/%dbpc/bl-opt/sdr-wl0.070-bl%.2f-%.2f-sl0.14-2.00-7-24-20.csv' % (bpc, step,start)
         print fname
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
@@ -30,7 +31,8 @@ data = pd.concat(datas)
 
 
 # Ignore bad cells
-ignore = [39705, 39722, 39750, 39751,  39781, 39785, 39808, 39810, 39883, 39911]
+#ignore = [39705, 39722, 39750, 39751,  39781, 39785, 39808, 39810, 39883, 39911]
+ignore = []
 data = data[~data['addr'].isin(ignore)]
 
 
@@ -57,10 +59,10 @@ for l in range(2**bpc - 1):
     ax = Axes3D(fig)
     plt.locator_params(axis='x', nbins=6)
     plt.locator_params(axis='y', nbins=6)
-    ax.set_title('VBL Start/Step Optimization (Range %d)' % (l), fontsize=20)
+    ax.set_title('VBL Start/Step Tuning (Range %d)' % (l), fontsize=20)
     ax.set_xlabel('BL Step Size (V)', fontsize=15)
     ax.set_ylabel('BL Start Voltage (V)', fontsize=15)
-    ax.set_zlabel('\# Pulses Required', fontsize=15)
+    ax.set_zlabel('Mean Pulses Required', fontsize=15)
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['npulses'].mean()
     grid = np.meshgrid(steps, starts)
     print d.unstack()

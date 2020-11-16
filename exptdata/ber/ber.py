@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
 
 # Chip number and bpc
-chipnum = 2
+chipnum = 1
 bpc = 3
 
 # LaTEX quality figures 
@@ -18,12 +18,12 @@ plt.rc('font', family='serif', serif='Times', size=13)
 
 # Setup figure
 plt.figure(figsize=(3.5,3))
-plt.title('Pulses Required for Target Error')
+plt.title('Pulses Required for Target BER')
 plt.xlabel('Mean Pulses Required')
-plt.ylabel('Error (\%)')
+plt.ylabel('Bit Error Rate (\%)')
 colors = iter(plt.rcParams['axes.prop_cycle'].by_key()['color'][:3]*2)
 styles = iter(['-']*3 + ['--']*3)
-labels = iter(['ISPP', 'FPPV', 'SDCFC']*2)
+labels = iter(['ISPP', 'FPPV', 'RDCFC']*2)
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
@@ -85,4 +85,5 @@ plt.gca().add_artist(leg1)
 leg2 = plt.legend(handles[3:6], labels[3:6], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 10}, loc='lower left', bbox_to_anchor=(1.02, 0), title='After 8k cycles')
 plt.tight_layout()
 plt.savefig('figs/ber.eps', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
+plt.savefig('figs/ber.pdf', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
 plt.savefig('figs/ber.png', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
