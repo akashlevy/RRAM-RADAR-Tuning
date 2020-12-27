@@ -44,7 +44,7 @@ for column in data.columns[1:]:
 data = pd.DataFrame(data2, columns=columns)
 
 # Change R to kOhm
-data['R'] = np.int64(data['R'])/1000
+data['R'] = data['R']/1000
 
 # Compute gradients
 knob = 'Vbl' if SET else 'Vsl'
@@ -74,6 +74,6 @@ neardata.plot('R', 'dVr/d{knob}'.format(knob=knob), ax=plt.gca(), marker='.')
 print(neardata)
 
 plt.xlabel('$R$ (k$\\Omega$)')
-plt.ylabel('Slope')
+plt.ylabel('Voltage Gain')
 plt.tight_layout()
 plt.show()
