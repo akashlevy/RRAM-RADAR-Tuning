@@ -56,6 +56,11 @@ gdata = data.groupby(['R', 'Vwl'])
 data['dVr/d{knob}'.format(knob=knob)] = gdata['Vr'].transform(pd.Series.diff)/0.01
 data.fillna(0, inplace=True)
 
+data = data[np.abs(data['Vwl'] - 2.17) < 1e-5]
+data = data[np.abs(data['Vbl'] - 2) < 1e-5]
+print(data)
+exit()
+
 # Setup figure
 plt.figure(figsize=(4,2.5))
 

@@ -17,13 +17,13 @@ mpl.rcParams.update(
 plt.rc('font', family='serif', serif='Times', size=13)
 
 # Setup figure
-plt.figure(figsize=(3.5,3))
+plt.figure(figsize=(5,3))
 plt.title('Pulses Required for Target BER')
 plt.xlabel('Mean Pulses Required')
 plt.ylabel('Bit Error Rate (\%)')
 colors = iter(plt.rcParams['axes.prop_cycle'].by_key()['color'][:3]*2)
 styles = iter(['-']*3 + ['--']*3)
-labels = iter(['ISPP', 'FPPV', 'RDCFC']*2)
+labels = iter(['ISPP', 'FPPV', 'RDCF']*2)
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
@@ -58,13 +58,13 @@ for i, fname in enumerate(fnames):
 
     # Create labels
     argerr = np.argmin(np.abs(bers - (1 if bpc == 3 else 0.3)))
-    print fname
-    print pulses[argerr], bers[argerr]
-    print pulses[argerr-1], bers[argerr-1]
+    print(fname)
+    print(pulses[argerr], bers[argerr])
+    print(pulses[argerr-1], bers[argerr-1])
     if bpc == 3 and i not in [1,3,4]:
-        plt.annotate('%.2f' % pulses[argerr-1], xy=(pulses[argerr-1], 1), xytext=(pulses[argerr-1]+(10 if i==2 else -10), 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
+        plt.annotate('%.1f' % pulses[argerr-1], xy=(pulses[argerr-1], 1), xytext=(pulses[argerr-1]+(10 if i==2 else -10), 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
     if bpc == 2 and i < 3:
-        plt.annotate('%.2f' % pulses[argerr-1], xy=(pulses[argerr-1], 0.3), xytext=(pulses[argerr-1]-3, 0.5), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
+        plt.annotate('%.1f' % pulses[argerr-1], xy=(pulses[argerr-1], 0.3), xytext=(pulses[argerr-1]-3, 0.5), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 
 # Plot BER
 if bpc == 2:

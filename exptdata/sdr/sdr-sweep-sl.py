@@ -29,7 +29,7 @@ for step in steps:
         #fname = 'data/2bpc/sl-opt-1/sdr-wl0.100-bl0.10-0.40-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         #fname = 'data/2bpc/sl-opt-2/sdr-wl0.100-bl5.00-5.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
         #fname = 'data/2bpc/sl-opt-1/sdr-wl0.100-bl5.00-5.00-sl%.2f-%.2f-7-24-20.csv' % (step,start)
-        print fname
+        print(fname)
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
         data['stepsize'] = step
@@ -74,9 +74,9 @@ for l in range(2**bpc - 1):
     ax.set_zlabel('Mean Pulses Required', fontsize=15)
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['npulses'].mean()
     grid = np.meshgrid(steps, starts)
-    print d.unstack()
-    print d.min(), d.idxmin()
-    ax.plot_surface(grid[0], grid[1], d.unstack().T)
+    print(d.unstack())
+    print(d.min(), d.idxmin())
+    ax.plot_surface(grid[0], grid[1], d.unstack().T, shade=False, edgecolors='black')
     plt.show()
 
     fig = plt.figure()
@@ -87,7 +87,7 @@ for l in range(2**bpc - 1):
     ax.set_zlabel('Success Rate', fontsize=15)
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['success'].mean()
     grid = np.meshgrid(steps, starts)
-    print d.unstack()
-    print d.max(), d.idxmax()
-    ax.plot_surface(grid[0], grid[1], d.unstack().T)
+    print(d.unstack())
+    print(d.max(), d.idxmax())
+    ax.plot_surface(grid[0], grid[1], d.unstack().T, shade=False, edgecolors='black')
     plt.show()

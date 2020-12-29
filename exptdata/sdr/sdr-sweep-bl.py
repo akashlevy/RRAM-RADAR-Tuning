@@ -18,7 +18,7 @@ starts = np.arange(0, 1.21, 0.4)
 for step in steps:
     for start in starts:
         fname = 'data/%dbpc/bl-opt/sdr-wl0.070-bl%.2f-%.2f-sl0.14-2.00-7-24-20.csv' % (bpc, step,start)
-        print fname
+        print(fname)
         data = pd.read_csv(fname, delimiter='\t', names=names, index_col=False)
         data['npulses'] = data['nsets'] + data['nresets'] - 1
         data['stepsize'] = step
@@ -55,7 +55,7 @@ plt.rc('font', family='serif', serif='Times', size=13)
 
 # Per-level optimization
 for l in range(2**bpc - 1):
-    fig = plt.figure()
+    fig = plt.figure(figsize=(5,3))
     ax = Axes3D(fig)
     plt.locator_params(axis='x', nbins=6)
     plt.locator_params(axis='y', nbins=6)
@@ -65,12 +65,12 @@ for l in range(2**bpc - 1):
     ax.set_zlabel('Mean Pulses Required', fontsize=15)
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['npulses'].mean()
     grid = np.meshgrid(steps, starts)
-    print d.unstack()
-    print d.min(), d.idxmin()
-    ax.plot_surface(grid[0], grid[1], d.unstack().T)
+    print(d.unstack())
+    print(d.min(), d.idxmin())
+    ax.plot_surface(grid[0], grid[1], d.unstack().T, shade=False, edgecolors='black')
     plt.show()
 
-    fig = plt.figure()
+    fig = plt.figure(figsize=(5,3))
     ax = Axes3D(fig)
     ax.set_title('VBL Start/Step Optimization (Range %d)' % (l), fontsize=20)
     ax.set_xlabel('BL Step Size (V)', fontsize=15)
@@ -78,7 +78,7 @@ for l in range(2**bpc - 1):
     ax.set_zlabel('Success Rate', fontsize=15)
     d = data[data['bin'] == l].groupby(['stepsize', 'start'])['success'].mean()
     grid = np.meshgrid(steps, starts)
-    print d.unstack()
-    print d.max(), d.idxmax()
-    ax.plot_surface(grid[0], grid[1], d.unstack().T)
+    print(d.unstack())
+    print(d.max(), d.idxmax())
+    ax.plot_surface(grid[0], grid[1], d.unstack().T, shade=False, edgecolors='black')
     plt.show()
