@@ -23,7 +23,7 @@ plt.xlabel('Mean Pulses Required')
 plt.ylabel('Bit Error Rate (\%)')
 colors = iter(plt.rcParams['axes.prop_cycle'].by_key()['color'][:3]*2)
 styles = iter(['-']*3 + ['--']*3)
-labels = iter(['ISPP', 'FPPV', 'RADAR']*2)
+labels = iter(['ISPP', 'FPPV', 'RDCF']*2)
 
 # Load data
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
@@ -54,36 +54,5 @@ for i, fname in enumerate(fnames):
         pulses.append(data['npulses'].mean())
         bers.append(1-data['success'].mean())
     bers = np.array(bers)*100
-    plt.semilogy(pulses, bers, color=next(colors), linestyle=next(styles), label=next(labels))
-
-    # Create labels
-    argerr = np.argmin(np.abs(bers - (1 if bpc == 3 else 0.3)))
-    print(fname)
-    print(pulses[argerr], bers[argerr])
-    print(pulses[argerr-1], bers[argerr-1])
-    if bpc == 3 and i not in [1,3,4]:
-        plt.annotate('%.1f' % pulses[argerr-1], xy=(pulses[argerr-1], 1), xytext=(pulses[argerr-1]+(10 if i==2 else -10), 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
-    if bpc == 2 and i < 3:
-        plt.annotate('%.1f' % pulses[argerr-1], xy=(pulses[argerr-1], 0.3), xytext=(pulses[argerr-1]-3, 0.5), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
-
-# Plot BER
-if bpc == 2:
-    plt.semilogy([0, 90], [0.3, 0.3], ':', color='black')
-    plt.xlim(0, 25)
-    plt.ylim(0.2, 100)
-if bpc == 3:
-    plt.semilogy([0, 90], [1, 1], ':', color='black')
-    plt.ylim(0.5, 90)
-    plt.xlim(0, 90)
-    plt.xticks(list(plt.xticks()[0]) + [90])
-    plt.xlim(0, 90)
-plt.gca().xaxis.set_major_formatter(FormatStrFormatter('%d'))
-plt.gca().yaxis.set_major_formatter(FormatStrFormatter('%d'))
-handles, labels = plt.gca().get_legend_handles_labels()
-leg1 = plt.legend(handles[:3], labels[:3], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 10}, loc='upper left', bbox_to_anchor=(1.02, 1), title='Before cycling')
-plt.gca().add_artist(leg1)
-leg2 = plt.legend(handles[3:6], labels[3:6], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 10}, loc='lower left', bbox_to_anchor=(1.02, 0), title='After 8k cycles')
-plt.tight_layout()
-plt.savefig('figs/ber.eps', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
-plt.savefig('figs/ber.pdf', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
-plt.savefig('figs/ber.png', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
+    plt.distplot(data['npulses'])
+    plt.show()
