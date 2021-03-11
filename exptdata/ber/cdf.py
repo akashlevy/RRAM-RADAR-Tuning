@@ -18,9 +18,9 @@ plt.rc('font', family='serif', serif='Times', size=13)
 
 # Setup figure
 plt.figure(figsize=(5,3))
-plt.title('Pulse Count for Target BER (%dbpc)' % bpc)
+plt.title('Pulse Count CDF (%dbpc)' % bpc)
 plt.xlabel('Mean Pulse Count')
-plt.ylabel('Bit Error Rate (\%)')
+plt.ylabel('CDF (\%)')
 colors = iter(plt.rcParams['axes.prop_cycle'].by_key()['color'][:3]*2)
 styles = iter(['-']*3 + ['--']*3)
 labels = iter(['ISPP', 'FPPV', 'RADAR']*2)
@@ -49,30 +49,29 @@ for i, fname in enumerate(fnames):
     pulses = []
     bers = []
     for maxpulses in sorted(data['npulses'].unique(), reverse=True):
-        data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
-        data['npulses'] = data['npulses'].clip(upper=maxpulses)
-        pulses.append(data['npulses'].mean())
-        bers.append(1-data['success'].mean())
+        pdata = data[data['npulses'] <= maxpulses]
+        pulses.append(pdata['npulses'].mean())
+        bers.append(1-len(pdata)/len(data))
     bers = np.array(bers)*100
-    plt.semilogy(pulses, bers, color=next(colors), linestyle=next(styles), label=next(labels))
+    plt.plot(pulses, bers, color=next(colors), linestyle=next(styles), label=next(labels))
 
-    # Create labels
-    argerr = np.argmin(np.abs(bers - (1 if bpc == 3 else 0.3)))
-    print(fname)
-    print(pulses[argerr], bers[argerr])
-    print(pulses[argerr-1], bers[argerr-1])
-    if bpc == 3 and i not in [1,3,4]:
-        plt.annotate('%.1f' % pulses[argerr-1], xy=(pulses[argerr-1], 1), xytext=(pulses[argerr-1]+(10 if i==2 else -10), 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
-    if bpc == 2 and i < 3:
-        plt.annotate('%.1f' % pulses[argerr-1], xy=(pulses[argerr-1], 0.3), xytext=(pulses[argerr-1]-3, 0.5), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
+    # # Create labels
+    # argerr = np.argmin(np.abs(bers - (1 if bpc == 3 else 0.3)))
+    # print(fname)
+    # print(pulses[argerr], bers[argerr])
+    # print(pulses[argerr-1], bers[argerr-1])
+    # if bpc == 3 and i not in [1,3,4]:
+    #     plt.annotate('%.1f' % pulses[argerr-1], xy=(pulses[argerr-1], 1), xytext=(pulses[argerr-1]+(10 if i==2 else -10), 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
+    # if bpc == 2 and i < 3:
+    #     plt.annotate('%.1f' % pulses[argerr-1], xy=(pulses[argerr-1], 0.3), xytext=(pulses[argerr-1]-3, 0.5), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
 
 # Plot BER
 if bpc == 2:
-    plt.semilogy([0, 90], [0.3, 0.3], ':', color='black')
+    #plt.semilogy([0, 90], [0.3, 0.3], ':', color='black')
     plt.xlim(0, 25)
     plt.ylim(0.2, 100)
 if bpc == 3:
-    plt.semilogy([0, 90], [1, 1], ':', color='black')
+    #plt.semilogy([0, 90], [1, 1], ':', color='black')
     plt.ylim(0.5, 90)
     plt.xlim(0, 90)
     plt.xticks(list(plt.xticks()[0]) + [90])
@@ -84,6 +83,6 @@ leg1 = plt.legend(handles[:3], labels[:3], ncol=1, columnspacing=1, handletextpa
 plt.gca().add_artist(leg1)
 leg2 = plt.legend(handles[3:6], labels[3:6], ncol=1, columnspacing=1, handletextpad=0.5, borderpad=0.2, prop={'size': 10}, loc='lower left', bbox_to_anchor=(1.02, 0), title='After 8k cycles')
 plt.tight_layout()
-plt.savefig('figs/ber.eps', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
-plt.savefig('figs/ber.pdf', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
-plt.savefig('figs/ber.png', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
+plt.savefig('figs/cdf.eps', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
+plt.savefig('figs/cdf.pdf', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
+plt.savefig('figs/cdf.png', bbox_extra_artists=[leg1, leg2], bbox_inches='tight')
