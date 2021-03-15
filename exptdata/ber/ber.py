@@ -53,6 +53,9 @@ for i, fname in enumerate(fnames):
         data['npulses'] = data['npulses'].clip(upper=maxpulses)
         pulses.append(data['npulses'].mean())
         bers.append(1-data['success'].mean())
+        # pdata = data[data['npulses'] <= maxpulses]
+        # pulses.append(pdata['npulses'].mean())
+        # bers.append(1-len(pdata)/len(data))
     bers = np.array(bers)*100
     plt.semilogy(pulses, bers, color=next(colors), linestyle=next(styles), label=next(labels))
 
