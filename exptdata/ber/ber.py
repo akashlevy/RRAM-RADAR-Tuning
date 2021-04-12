@@ -48,11 +48,13 @@ for i, fname in enumerate(fnames):
     # Sweep maxpulses
     pulses = []
     bers = []
+    stds = []
     for maxpulses in sorted(data['npulses'].unique(), reverse=True):
         data['success'] = data['success'].astype(bool) & (data['npulses'] <= maxpulses)
         data['npulses'] = data['npulses'].clip(upper=maxpulses)
         pulses.append(data['npulses'].mean())
         bers.append(1-data['success'].mean())
+        stds.append(data['npulses'].std())
         # pdata = data[data['npulses'] <= maxpulses]
         # pulses.append(pdata['npulses'].mean())
         # bers.append(1-len(pdata)/len(data))
@@ -62,8 +64,8 @@ for i, fname in enumerate(fnames):
     # Create labels
     argerr = np.argmin(np.abs(bers - (1 if bpc == 3 else 0.3)))
     print(fname)
-    print(pulses[argerr], bers[argerr])
-    print(pulses[argerr-1], bers[argerr-1])
+    print(pulses[argerr], bers[argerr], stds[argerr])
+    print(pulses[argerr-1], bers[argerr-1], stds[argerr-1])
     if bpc == 3 and i not in [1,3,4]:
         plt.annotate('%.1f' % pulses[argerr-1], xy=(pulses[argerr-1], 1), xytext=(pulses[argerr-1]+(10 if i==2 else -10), 2), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='center')
     if bpc == 2 and i < 3:
