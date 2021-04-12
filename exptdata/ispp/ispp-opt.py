@@ -8,8 +8,9 @@ bpc = 3
 stepsize = 0.01 if bpc == 2 else 0.005
 datas = []
 names = ['addr', 'nreads', 'nsets', 'nresets', 'rf', 'if', 'rlo', 'rhi', 'success', 'attempts1', 'attempts2']
-for step in np.arange(stepsize, 0.121, stepsize):
-    data = pd.read_csv('data/3bpc/ispp-wl%.3f-bl5.00-5.00-sl5.00-5.00-7-24-20.csv' % step, delimiter='\t', names=names, index_col=False)
+for step in np.arange(stepsize, 0.091, stepsize):
+    step = round(step, 3)
+    data = pd.read_csv('data/3bpc/ispp-wl%.3f-bl0.80-sl0.30-0.30-7-13-20.csv' % step, delimiter='\t', names=names, index_col=False)
     data['npulses'] = data['nsets'] + data['nresets'] - 1
     data['stepsize'] = step
     rlos = data['rlo'].unique()
@@ -19,9 +20,10 @@ for step in np.arange(stepsize, 0.121, stepsize):
 data = pd.concat(datas)
 
 # Cells to ignore
-#ignore = [3879, 3860, 4023]
+ignore = [3879, 3860, 4023]
 ignore = []
 data = data[~data['addr'].isin(ignore)]
+data = data[((data['stepsize'] * 1000 % 10) < 4) | (np.abs(data['stepsize']-0.05) < 1e-10)]
 
 # Get maxpulses where > 99%
 maxpulses = {}
@@ -45,7 +47,7 @@ mpl.rcParams.update(
     {
     'text.usetex': True,
     'pgf.texsystem': 'lualatex',
-    'pgf.rcfonts': True,
+    #'pgf.rcfonts': True,
     }
 )
 plt.rc('font', family='serif', serif='Times', size=13)
@@ -58,18 +60,21 @@ npulses_mean = npulses.mean()
 print(npulses_mean)
 npulses_std = npulses.std()
 print(npulses_std)
-npulses_mean.plot.bar(title='ISPP: Mean Pulses vs. Step Size', figsize=(5,3), color=['r' if s < 0.99 else 'c' for s in grouped['success'].mean()]) #, yerr=npulses_std)
+npulses_mean.plot.bar(title='ISPP Tuning', figsize=(3,3), color=['r' if s < 0.99 else 'c' for s in grouped['success'].mean()]) #, yerr=npulses_std)
 #plt.legend(['$\geq$99\% success rate'])
 #plt.ylim(20, 60)
-plt.xlabel('Step Size (V)')
+plt.ylim(50, 150)
+plt.xlabel('WL Voltage Step (V)')
 plt.ylabel('Mean Pulses Required')
 if bpc == 2:
     plt.annotate('Optimal Step Size: 0.1V', xy=(9, 20), xytext=(8, 40), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='bottom')
 if bpc == 3:
-    plt.annotate('Optimal Step Size: 0.07V', xy=(6, 80), xytext=(6, 120), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='bottom')
+    plt.annotate('Optimal Step Size: 0.07V', xy=(6, 80), xytext=(5, 120), arrowprops=dict(facecolor='black', shrink=0.1, width=1, headwidth=3, headlength=5), fontsize=11, horizontalalignment='center', verticalalignment='bottom')
 plt.tight_layout()
 plt.savefig('figs/ispp-mean-pulses-step.eps')
+plt.savefig('figs/ispp-mean-pulses-step.pdf')
 plt.show()
+exit()
 
 # ISPP Mean Resets
 grouped = data.groupby(['stepsize'])
