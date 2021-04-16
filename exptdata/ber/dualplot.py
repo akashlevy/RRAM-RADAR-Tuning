@@ -27,7 +27,7 @@ ax_pc.set_title('Pulse Count Distributions (%dbpc)' % bpc)
 ax_pc.set_xscale('log')
 ax_pc.set_ylabel('Mean Pulses Req.')
 ax_ber.set_xlabel('Maximum Pulses Allowed')
-ax_ber.set_ylabel('Bit Error Rate (\%)')
+ax_ber.set_ylabel('Cells Not Prog. (\%)')
 
 colors = iter(plt.rcParams['axes.prop_cycle'].by_key()['color'][:3])
 styles = iter(['-']*3)
@@ -89,11 +89,11 @@ for i, fname in enumerate(fnames[:3]):
 # Plot BER
 ax_ber.semilogy([0, 2000], [ber, ber], ':', color='black')
 if bpc == 2:
-    ax_pc.set_xlim(5, 190)
+    ax_pc.set_xlim(1, 190)
     ax_pc.set_ylim(0, 30)
     ax_ber.set_ylim(0.1, 100)
 if bpc == 3:
-    ax_pc.set_xlim(10, 1000)
+    ax_pc.set_xlim(1, 1000)
     ax_pc.set_ylim(0, 100)
     ax_ber.set_ylim(0.6, 100)
 ax_ber.xaxis.set_major_formatter(FormatStrFormatter('%d'))
